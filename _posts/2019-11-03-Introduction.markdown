@@ -2,7 +2,7 @@
 layout: post
 title:  "Introduction!"
 date:   2019-11-03 14:36:28 +0800
-categories: Initialize Blog
+categories: jekyll update
 ---
 
 
