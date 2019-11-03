@@ -9,9 +9,4 @@ categories: jekyll update
 
 ### 大家好！我的名字叫刘红杨！欢迎来到我的博客世界!
 
-![GitHub Logo](/images/photo_liuhongyang.jpg)
-
-
-
-
-
+![Profile](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
