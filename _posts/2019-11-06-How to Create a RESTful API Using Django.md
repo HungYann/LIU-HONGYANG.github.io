@@ -63,5 +63,5 @@ python manage.py runserver
 ```
 References:
 
-[Video: Django Rest Framework | How to Create a RESTful API Using Django | Django Tutorial | Edureka](https://www.youtube.com/watch?v=ejJ-2oz4AgI)
+[Video Django Rest Framework | How to Create a RESTful API Using Django | Django Tutorial | Edureka](https://www.youtube.com/watch?v=ejJ-2oz4AgI)
 
