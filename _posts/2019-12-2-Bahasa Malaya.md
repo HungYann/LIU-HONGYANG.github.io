@@ -1,3 +1,62 @@
+Nama saya Hongyang.  
+
+Saya belajar di Universiti Malaya. 
+
+Umur saya dua puluh tiga tahun. 
+
+Saya belajar Komputer Sains di Universiti Malaya. 
+
+Saya sedang belajar di fakulti Komputer & teknologi sains. 
+
+Nama kawan baik saya Andy. 
+
+Saya berasal dari Cina. 
+
+Cita-cita  Saya menjadi guru. 
+
+Saya ada dua adik-beradik. 
+
+Saya tinggal di jaya one. 
+
+Saya pergi ke kampus dengan bas. 
+
+Saya suka bermain badminton. 
+
+nama guru Bahasa Malaya saya Encik Sabri. 
+
+Saya suka minum kafe. 
+
+saya suda makan nasi goreng ayam. 
+
+saya datang ke Malaya pada tiga belas September ini tahun.  
+
+Saya suka Universiti Malaya. 
+
+ 
+
+Baba 
+
+Ibu 
+
+Hobi 
+
+Cita-cita 
+
+Saya belajar BM di fakuiti bahasa 
+
+Makan 
+
+Minum 
+
+Datang ke malaya 
+
+Datang 
+
+Pada 
+
+Dengan bas 
+
+
 **1.sila masuk** (Please login)
 
 
