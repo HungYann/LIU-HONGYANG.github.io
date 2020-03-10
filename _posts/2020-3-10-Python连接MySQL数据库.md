@@ -50,4 +50,8 @@ for x in mycursor:  print(x)
 
 ### References:
 
+
+
+[Python MySQL - mysql-connector 驱动](https://www.runoob.com/python3/python-mysql-connector.html)
+
 [Python连接Hive的两种方法](https://blog.csdn.net/Clany888/article/details/82989068?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
