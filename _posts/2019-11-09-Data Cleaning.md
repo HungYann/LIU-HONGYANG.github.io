@@ -1,3 +1,12 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Data Science]
+
+---
+
+
+
 ## Data Cleaning
 
 ### Common Types of Dirty Data
@@ -24,11 +33,13 @@ There are often large collections of poorly documented business rules associated
 
 - Inconsistent data
 
- Data redundancy–i.e., the same field values stored in different places-often leads to inconsistencies. For example, most companies have customer information in multiple systems and the data is often not kept in sync. 
+ Data redundancy–i.e., the same field values stored in different places-often leads to inconsistencies. For example, most companies have customer information in multiple systems and the data is often not kept in sync.
+
+
  ### Where Does the "Dirt" Come From?
 
 **Incomplete** The data has missing values. Not data value is stored in a field. For example, the street address is missing in a customer record. 
- 
+
 **Incorrect**  The value entered does not comply with the field's valid values. For example, the value entered for month is likely to be a number from 1 to 12. This vlaue can be enforced with lookup tables or edit checks.
 
 **Inaccurate** The value entered is not accurate. Sometimes, the system can evaluate the data value for accuracy based on context. For most systems, accuracy validation requires a manual process.

@@ -1,3 +1,11 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Python]
+---
+
+
+
 ### WHAT IS AN API
 
 API stands for application programming interface. API basically helps one web application to communicate with another application.

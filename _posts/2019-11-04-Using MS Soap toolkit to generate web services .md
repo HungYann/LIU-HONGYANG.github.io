@@ -1,3 +1,14 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Data Science]
+
+---
+
+
+
+
+
 ## Different SOAP encoding styles - RPC, RPC-literal, and document-literal
 
 * **SOAP Remote Procedure Call(RPC) encoding**,also known as Section 5 encoding, which uses RPC methods to make calls but uses and an XML do-it-youself for mashalling the data.

@@ -1,3 +1,11 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Python]
+---
+
+
+
 ### ODATA or "SQL for the web"
 
 OData is a REST-based protocol for querying and updating data. It is built on technologies like HTTP,ATOM/XML and JSON. It is more flexible than other REST-based web services and provides a uniform way to describe the data and the data model for easy interoperability between data sources, applications, services and clients. Similiar to ODBC and JDBC, OData gives you a single way of accessing various data sources.

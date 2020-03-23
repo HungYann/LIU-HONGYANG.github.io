@@ -1,3 +1,14 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Hadoop]
+
+---
+
+
+
+
+
 ## Mapreduce简介
 
 

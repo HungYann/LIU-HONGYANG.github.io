@@ -1,3 +1,11 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [MySQL]
+---
+
+
+
 ## MySQL Workbench 
 
 本章教程，笔者学习了Workbench的使用
