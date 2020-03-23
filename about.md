@@ -1,7 +1,13 @@
 ---
 layout: page
-title: 关于
+title: 博主介绍
 permalink: /about/
 ---
 
-这是一个关于页面，请编辑about.md以介绍你的博客。
+
+
+![](https://tva1.sinaimg.cn/large/00831rSTgy1gd43u68om1j30m80gogmv.jpg)
+
+
+
+大家好！我是博主Leo, 本人是计算机专业在校生，主修方向为大数据科学，欢迎来到我的博客世界！
