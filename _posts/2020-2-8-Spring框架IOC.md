@@ -1,3 +1,13 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [JavaEE]
+---
+
+
+
+
+
 #### Spring 框架两大核心机制
 
 - Ioc(控制反转) / DI（依赖注入）

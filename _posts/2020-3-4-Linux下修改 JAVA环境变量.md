@@ -1,3 +1,13 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Hadoop]
+---
+
+
+
+
+
 ### Linux下修改 JAVA环境变量
 
 

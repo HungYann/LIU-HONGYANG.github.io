@@ -1,3 +1,11 @@
+```
+layout: post
+author: LIU,HONGYANG
+tags: [JavaEE]
+```
+
+
+
 # Mybatis映射器**select**
 
 ### 简单的select元素的应用

@@ -1,3 +1,16 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Mysql]
+
+
+
+---
+
+
+
+
+
 MySQL目录结构
 
 - bin目录，存储可执行文件

@@ -1,3 +1,13 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [JavaEE]
+---
+
+
+
+
+
 本节由本人学习书籍《SpringMVC+Mybatis企业应用实战》所写
 
 

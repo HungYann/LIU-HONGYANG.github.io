@@ -1,3 +1,11 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [JavaEE]
+---
+
+
+
 >  SpringMVC应用开发步骤
 
 1. 导入需要的Maven文件

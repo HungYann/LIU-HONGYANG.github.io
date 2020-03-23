@@ -1,3 +1,11 @@
+```
+layout: post
+author: LIU,HONGYANG
+tags: [JavaEE]
+```
+
+
+
 Mybatis配置
 
 

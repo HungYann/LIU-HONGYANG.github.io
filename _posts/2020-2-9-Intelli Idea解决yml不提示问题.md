@@ -1,3 +1,13 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Intellig idea]
+---
+
+
+
+
+
 在学习IntelliJ idea使用的过程中，会遇到intellij的yml文件不提示，由于 yml对的要求比较高，所以在实际使用过程中让yml提示缩进既可以提高效率，也可以减少错误。
 
 首先检查是否按转yaml插件

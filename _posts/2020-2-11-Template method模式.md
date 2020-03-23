@@ -1,3 +1,13 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [设计模式]
+---
+
+
+
+
+
 ### Template Method模式
 
 在父类中定义处理流程的框架，在子类中实现具体处理

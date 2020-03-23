@@ -1,3 +1,15 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Intellig idea]
+---
+
+
+
+
+
+
+
 ### InteliJ idea安装lombok
 
 由于在项目开发过程中，写getter和setter一定觉得很烦，尤其是在修改属性之后，那么如何解决这个问题呢？

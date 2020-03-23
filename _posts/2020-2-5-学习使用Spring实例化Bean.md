@@ -1,3 +1,13 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [JavaEE]
+---
+
+
+
+
+
 ##学习使用Spring实例化Bean
 
 ### 1.通过默认构造方法实例化Bean
@@ -38,7 +48,7 @@ public class Bean2 {
 ```
 
 Bean2Factory.java
- 
+
 ```{}
 public class Bean2Factory {
         public static Bean2 getBean2()
@@ -47,7 +57,7 @@ public class Bean2Factory {
         }
 }
 
-``` 
+```
 为了调用此方法：
 
 相当于写出如下公式：

@@ -1,3 +1,12 @@
+```
+layout: post
+author: LIU,HONGYANG
+tags: [Intellig idea]
+
+```
+
+
+
 |   功能名称   |   快捷键方式    |           |
 | :----------: | :-------------: | :-------: |
 |   切换文件   |    command+[    | command+] |

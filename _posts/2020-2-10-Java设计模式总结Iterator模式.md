@@ -1,3 +1,13 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [设计模式]
+---
+
+
+
+
+
 Java设计模式总结
 
 

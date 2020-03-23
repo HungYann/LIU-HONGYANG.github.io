@@ -1,3 +1,13 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [设计模式]
+---
+
+
+
+
+
 ### Factory Method模式
 
 父类定义接口，将实例创建生成过程交给交给子类，让子类决定创建产品

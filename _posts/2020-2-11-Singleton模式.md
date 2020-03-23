@@ -1,3 +1,13 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [设计模式]
+---
+
+
+
+
+
 ### Singleton模式学习
 
 
