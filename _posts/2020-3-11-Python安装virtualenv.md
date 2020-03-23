@@ -1,13 +1,3 @@
----
-tags: [Python]
----
-
-
-
-
-
-
-
 > 下载virtualenv文件
 
 

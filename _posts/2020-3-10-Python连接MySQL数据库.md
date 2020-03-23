@@ -1,11 +1,3 @@
----
-tags: [Python]
----
-
-
-
-
-
 ### Python连接MySQL数据库
 
 首先使用Python3.7直接下载MySQL-python,会发现报错
