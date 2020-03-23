@@ -1,12 +1,5 @@
 ---
-layout: post
-title: Python安装virtualenv
-date: 2020-03-23
-author: LIU,HONGYANG
-tags: [Java]
-comments: true
-toc: false
-pinned: true
+tags: [Python]
 ---
 
 

@@ -1,12 +1,5 @@
 ---
-layout: post
-title: Python连接MySQL数据库
-date: 2020-03-23
-author: LIU,HONGYANG
-tags: [Java]
-comments: true
-toc: true
-pinned: false
+tags: [Python]
 ---
 
 
