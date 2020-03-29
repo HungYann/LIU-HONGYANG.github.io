@@ -313,13 +313,19 @@ What challenges do the data characteristics and technologies influence the perfo
 
 
 
+
+
+
+
+
+
 ##### Research Problem
 
 A research problem is a specific issue, difficulty, contradiction, or gap in knowledge that you will aim to address in your research. You might look for practical problems aimed at contributing to change, or theoretical problems aimed at expanding knowledge.
 
 
 
-
+![image-20200326221044715](https://tva1.sinaimg.cn/large/00831rSTgy1gd7opjcb2zj30vq09igpp.jpg)
 
 
 
