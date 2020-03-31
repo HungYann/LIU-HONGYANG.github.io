@@ -6,7 +6,11 @@ tags: [Hadoop]
 
 
 
-本人机器是mac，因此主要研究在Mac环境下的VirtualBox安装Ubuntu，并且配置Hadoop的过程。
+
+
+本人机器是mac，因此主要研究在Mac环境下的VirtualBox安装Ubuntu，并且配置Hadoop的过程(花了两天时间从0开始配置了一个单点数据仓库，主要包括虚拟机安装，配置，以及hadoop，hdfs, yarn命令配置，mysql踩坑，Hive和sqoop配置。最后是数据导入与使用，写了30来页笔记，供初学者使用学习)。
+
+
 
 ### 首先是下载VirtualBox虚拟机
 
