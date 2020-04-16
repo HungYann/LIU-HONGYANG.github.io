@@ -7,6 +7,12 @@ tags: [Intellig idea]
 
 
 
+![Screenshot 2020-04-15 at 23.32.15](https://tva1.sinaimg.cn/large/007S8ZIlgy1gduvhf7w0wj313g0e419f.jpg)
+
+
+
+
+
 |     功能名称     |   快捷键方式    |           |
 | :--------------: | :-------------: | :-------: |
 |     切换文件     |    command+[    | command+] |
