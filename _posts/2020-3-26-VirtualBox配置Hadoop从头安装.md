@@ -374,6 +374,11 @@ HDFS配置文件
 		<name>dfs.replication</name>
 		<value>1</value>
 	</property>
+  
+  <property>
+  	<name>dfs.permissions</name>
+    <value>false</value>
+  </property>
 
 </configuration>
 
