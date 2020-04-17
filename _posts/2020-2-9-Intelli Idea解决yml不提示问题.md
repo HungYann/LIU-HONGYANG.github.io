@@ -1,7 +1,7 @@
 ---
 layout: post
 author: LIU,HONGYANG
-tags: [Intellig idea]
+tags: [Idea]
 ---
 
 
