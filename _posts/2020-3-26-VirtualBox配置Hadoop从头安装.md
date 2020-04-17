@@ -76,7 +76,7 @@ View->Scaled Mode(HOST+C)
 
 
 
-![image-20200320001053066](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200320001053066.png)
+![image-20200320001053066](https://tva1.sinaimg.cn/large/007S8ZIlgy1gdwndzd4r1j30gq0960tj.jpg)
 
 
 
@@ -487,6 +487,7 @@ yarn-site.xml配置
 配置完成后
 
 ```
+hadoop hdfs -format
 start-all.sh启动进程
 ```
 
@@ -1298,3 +1299,12 @@ sqoop import --hive-import --connect jdbc:mysql://localhost/hive --username root
 
 [Hive](https://stackoverflow.com/questions/35449274/java-lang-runtimeexception-unable-to-instantiate-org-apache-hadoop-hive-ql-meta)
 
+
+
+7.阿里云配置Hadoop
+
+
+
+[阿里云1](https://blog.csdn.net/bqw18744018044/article/details/79103931)
+
+[阿里云2](https://blog.csdn.net/dongdong9223/article/details/81275360)
