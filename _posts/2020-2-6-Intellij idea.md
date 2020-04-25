@@ -26,6 +26,7 @@ tags: [Idea]
 |     自动排版     |  Alt+command+L  |           |
 |   查找函数命令   |  alt+command+O  |           |
 | 查到该类的实现类 |  alt+command+B  |           |
+| 快速生成成员变量 |   Ctrl+alt+V    |           |
 
 
 
