@@ -55,7 +55,7 @@ connects information you're borrowing from a resource  to a citation in  your bi
 
 
 
-![image-20200314175029751](https://tva1.sinaimg.cn/large/00831rSTgy1gctlr8243pj30xi0f0gqp.jpg)
+![image-20200314175029751](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jbc2vlbj30xi0f0wfv.jpg)
 
 
 
@@ -63,7 +63,7 @@ connects information you're borrowing from a resource  to a citation in  your bi
 
 直接引用
 
-![image-20200314175204254](https://tva1.sinaimg.cn/large/00831rSTgy1gctlsnfo7lj30z20hen64.jpg)
+![image-20200314175204254](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jbduxsqj30z20hetb0.jpg)
 
 
 
@@ -239,7 +239,7 @@ What challenges do the data characteristics and technologies influence the perfo
 
 - The Narrative Hook
 
-![image-20200316163741379](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200316163741379.png)
+![image-20200316163741379](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jbv0ss6j312c0r4h20.jpg)
 
 
 
@@ -259,7 +259,7 @@ What challenges do the data characteristics and technologies influence the perfo
 
 
 
-![image-20200316164411956](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200316164411956.png)
+![image-20200316164411956](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jbzvz07j312u0moqez.jpg)
 
 
 
@@ -277,17 +277,17 @@ What challenges do the data characteristics and technologies influence the perfo
 
 
 
-![image-20200316165013364](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200316165013364.png)
+![image-20200316165013364](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jc52hswj30v20kkwrh.jpg)
 
 
 
-![image-20200316165137843](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200316165137843.png)
+![image-20200316165137843](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jc7fcv7j30v00kkank.jpg)
 
 
 
 
 
-![image-20200316165231362](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200316165231362.png)
+![image-20200316165231362](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jc9a5rtj30v00ks7gb.jpg)
 
 ![image-20200316165307502](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200316165307502.png)
 
@@ -295,15 +295,15 @@ What challenges do the data characteristics and technologies influence the perfo
 
 
 
-![image-20200316165342606](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200316165342606.png)
+![image-20200316165342606](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jcb9lzjj30v20jmdrd.jpg)
 
 
 
-![image-20200316165454749](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200316165454749.png)
+![image-20200316165454749](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jce1i85j30ue0lu4e5.jpg)
 
 
 
-![image-20200316165546107](/Users/liuhongyang/Library/Application Support/typora-user-images/image-20200316165546107.png)
+![image-20200316165546107](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge7jch9xunj30ui0l8wv8.jpg)
 
 
 
