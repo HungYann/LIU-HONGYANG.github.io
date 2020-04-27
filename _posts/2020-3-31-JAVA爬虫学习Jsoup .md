@@ -12,6 +12,45 @@ tags: [Java]
 
 
 
+```xml
+<dependency>
+    <groupId>org.jsoup</groupId>
+    <artifactId>jsoup</artifactId>
+    <version>1.11.3</version>
+</dependency>
+```
+
+
+
+```java
+public class HtmlParser{
+
+    public static void main(String[] args){
+    
+        String url = "https://search.jd.com/Search?keyword=java";
+        
+        //解析网页
+        Document document = Jsoup.parse(new URL(url),30000);
+
+        Element element = document.getElementById("J_goodsList");
+        
+        System.out.println(element.html());
+        
+        Element elements = element.getElementByTag("li");
+        
+        for(Element element1: elements){
+            String img = el.getElementByTag("img").eq(0).attr("src");
+        
+        }
+        
+    }
+}
+```
+
+
+
+
+
 ##### Demo1
 
 使用Java获取a标签内容：
