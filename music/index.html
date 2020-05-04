@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue音乐实例 _ Ganto</title>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="shortcut icon" type="text/css" href="http://ganto.xyz/images/favicon.ico"/>
+    </head>
+    <body>
+        <div id="box">
+            <div id="app">
+                <div class="header">
+                    
+                    <span class="ntm"><a style="color: orange;text-decoration: none;" href="#"></a></span>
+                    
+                    <div class="search">
+                        <input  style="width: 300px; color: black" type="text" placeholder="请输入歌手名字" class="text" v-model="city" @keyup.enter="getjoke">
+                        <input style="color: black" type="button" class="button" value="搜索" @click="getjoke" >
+                    </div>
+                    <span class="tm" title="点击隐藏" style="color: red"><i></i></span>
+                
+                
+                </div>
+                <ul>
+                    <li class="li" :title="a.name + '-' + a.artists[0].name" v-for="(a,index) in arr" @click="fun(a.id,a.name,a.artists[0].name)">{{a.name}}-{{a.artists[0].name}}</li>
+                </ul>
+                <div class="section">
+                    <div class="nar">
+                        <span class="name">{{ name }}</span>
+                        <img class="img" :src="imgUrl" alt="">
+                    </div>
+                    
+                    <div class="lyric">
+                        <span v-for="lrc in lyric">{{ lrc.toString().substring(11,)  }}</br></span>
+                    </div>
+                
+                </div>
+                <audio autoplay controls loop :src="url"></audio>
+            </div>
+            <span class="kai" @click="love">√</span>
+          
+        </div>
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/index.js"></script>
+        
+    </body>
+</html>

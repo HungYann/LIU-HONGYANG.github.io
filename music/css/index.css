@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+#box{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: all 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#app{
+    width: 750px;
+    height: 500px;
+    max-width: 800px;
+    max-height: 500px;
+    box-shadow: 0px 0px 100px black;
+    position: absolute;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.header{
+    width: 100%;
+    height: 30px;
+    background: #2ab2ab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.header span{
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+}
+.search{
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, .5);
+    height: 30px;
+}
+.search .text{
+    height: 30px;
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+    outline: none;
+    margin-left: 10px;
+    font-size: 12px;
+    color: white;
+}
+.search .button{
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+    transition: all 1s;
+    color: white;
+    border-radius: 20px;
+    outline: none;
+}
+.search .button:hover{
+    color: white;
+    background-color: royalblue;
+}
+audio{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    background-color: #eeeeee;
+    outline: none;
+    z-index: 9;
+}
+ul{
+    list-style: none;
+    width: 200px;
+    height: 430px;
+    max-height: 430px;
+    background-color: royalblue;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+}
+ul::-webkit-scrollbar{
+    display: none;
+}
+ul li{
+    height: 17px;
+    cursor: pointer;
+    padding: 8px 10px;
+    margin: 10px;
+    border-radius: 4px;
+    color: white;
+    text-align: left;
+    transition: all 1s;
+    font-size: 13px;
+
+    white-space: nowrap;   /* �涨�����е��ı������л��� */
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+ul li:hover{
+    background: #2ab2ab;
+}
+li:nth-of-type(odd) {
+    background: rgba(255, 255, 255, .3);
+}
+li:nth-of-type(even) {
+    background: rgba(255, 255, 255, .1);
+}
+.section{
+    width: 600px;
+    height: 430px;
+    background: royalblue;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    overflow: hidden;
+    /* display: flex;
+    justify-content: center; */
+}
+.section .nar{
+    width: 390px;
+    position: absolute;
+    top: 15px;
+    text-align: center;
+}
+.section img{
+    width: 150px;
+    height: 150px;
+    border-radius: 4px;
+}
+
+.section .name{
+    display: block;
+    color: wheat;
+    z-index: 99;
+    font-weight: 900;
+    text-shadow: 2px 2px 5px wheat;
+    padding: 20px;
+}
+
+.section .lyric{
+    width: 180px;
+    height: 400px;
+    position: absolute;
+    right: 0;
+    padding: 0 10px;
+    font-size: 12px;
+    color: wheat;
+    overflow-y: auto;
+    margin: 15px;
+}
+.section .lyric::-webkit-scrollbar{
+    display: none;
+}
+.section .lyric span{
+    display: block;
+    margin: 4px 0;
+
+}
+.kai{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    border-radius: 50%;
+    top: 10px;
+    right: 10px;
+    box-sizing: border-box;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 900;
+    font-family: 幼圆;
+    color: white;
+    background-color: #66eeaa;
+}
+.kai:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,.5) inset;
+}
+.tm{
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 幼圆;
+    color: white;
+    position: relative;
+}
+.tm i{
+    display: inline-block;
+    width: 80px;
+    height: 20px;
+    font-style: normal;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: -80px;
+    text-align: center;
+    line-height: 20px;
+}
+.github{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
