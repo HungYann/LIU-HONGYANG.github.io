@@ -46,6 +46,45 @@
         <!-- 开发环境版本，包含了有帮助的命令行警告 -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="js/index.js"></script>
-        
+        <script>
+            $(function(){
+                $(".kai").hide();
+                $(".tm i").hide();
+                $(".tm").click(function(){
+                    $("#app").slideUp(100);
+                    $(".kai").fadeIn();
+                });
+                $(".tm").hover(function(){
+                    $(".tm i").stop().slideDown();
+                },function(){
+                    $(".tm i").stop().slideUp();
+                })
+                $(".kai").click(function(){
+                    $("#app").slideDown(100);
+                    $(".kai").fadeOut();
+                });
+                var app = $("#app"),
+                    header = $(".header");
+                var disX,
+                    disY;
+                header.mousedown(function(e){
+                    disX = e.pageX - parseInt(app.offset().left);
+                    disY = e.pageY - parseInt(app.offset().top);
+                    document.onmousemove = function(e){
+                        var event = e || window.event;
+                        app.css({"left":e.pageX - disX + "px", "top":e.pageY - disY + "px"});
+                    }
+                    document.onmouseup = function(){
+                        document.onmousemove = null;
+                    }
+                    
+                })
+                $(".github").mousedown(function(e){
+                    if(e.button == 2){
+                        $(this).fadeOut();
+                    }
+                })
+            })
+        </script>
     </body>
 </html>
