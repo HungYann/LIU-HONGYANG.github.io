@@ -14,7 +14,11 @@ tags: [Research]
 such hashtags are conventions created by users that become largely adopted
 ```
 
+> attitude
 
+```
+attitude to the collection and analysis of personal data.
+```
 
 
 
@@ -42,7 +46,13 @@ our goal is to categorize a tweet into one of the three sentiment categoris: pos
 
 
 
-##### 
+> Consumer
+
+
+
+```
+Consumer general attitude towards collection and usage of their personal data for advertising purpose is evalutated 
+```
 
 
 
@@ -60,6 +70,14 @@ We exploited the syntax of the tweets to compose our features
 
 
 
+> cumbersome
+
+
+
+
+
+
+
 ##### D
 
 
@@ -74,6 +92,16 @@ We exploited the syntax of the tweets to compose our features
 
 ```
 We exploited the syntax of the tweets to compose our features
+```
+
+
+
+> emergence
+
+
+
+```
+due to the emergence of big data and big model, there has been an ever-increasing need of parallelizing machine learning algorithms
 ```
 
 
@@ -110,6 +138,22 @@ highlight teh most important attributes for spam detection onTwitter
 we implement a 2-stem sentiment detection framework
 ```
 
+> Identify
+
+```
+identify opportunities of utilizing Big data
+```
+
+> Interplay
+
+```
+big data is understood "as a cultural", technological and scholarly phenomenon that rests on the interplay of the three factors: technology,analysis and mythology
+```
+
+
+
+
+
 
 
 ##### J
@@ -117,6 +161,18 @@ we implement a 2-stem sentiment detection framework
 
 
 ##### K
+
+> Key
+
+
+
+```
+Key success factors appealing to Russian consumers of AliExpress are determined
+```
+
+
+
+
 
 
 
@@ -207,6 +263,14 @@ are obfuscated by URL shorteners
 
 
 ##### T
+
+> Trading platform
+
+
+
+```
+studied trading platform
+```
 
 
 
