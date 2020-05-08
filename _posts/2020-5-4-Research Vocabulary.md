@@ -346,5 +346,19 @@ Although
 
 
 
+##### 副词
+
+
+
+```
+extensively
+personally
+accuarately
+effectively
+efficiently
+```
+
+
+
 
 
