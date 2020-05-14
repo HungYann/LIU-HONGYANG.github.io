@@ -106,6 +106,16 @@ due to the emergence of big data and big model, there has been an ever-increasin
 
 
 
+> essential
+
+
+
+```
+it will be essential to find and accept quick and effective help from public institutions
+```
+
+
+
 
 
 ##### F
@@ -206,6 +216,36 @@ we are motivated to develop an abstract representation of tweets.
 
 ##### P
 
+> player
+
+
+
+```
+major market palyers in all areas of touristic value chain,i.e., airlines, tour operators, hotels, cruise lines, and retailers,have either minimized or even completely stopped their production for an undefined period of time, resulting in the sudden and total cut-off of their revenue streams. 
+```
+
+
+
+> premise
+
+
+
+```
+on their premise
+```
+
+
+
+> precaution
+
+```
+as a precaution
+```
+
+
+
+
+
 
 
 ##### Q
@@ -270,6 +310,14 @@ are obfuscated by URL shorteners
 
 ```
 studied trading platform
+```
+
+
+
+> 
+
+```
+The advantage of focusing on trade credits is to preserve the value chain, thereby paving the way for a viable resolution model involving the MSMEs.
 ```
 
 
@@ -356,6 +404,9 @@ personally
 accuarately
 effectively
 efficiently
+
+dramatically change
+corresondingly
 ```
 
 
