@@ -253,6 +253,8 @@ df.fillna(0)
 
 其中value参数省略
 
+
+
 > 填充均值
 
 
@@ -272,3 +274,149 @@ df2.fillna(df2['B'].mean())
 
 
 ![image-20200515132147559](https://tva1.sinaimg.cn/large/007S8ZIlgy1get2enmf1fj30la0aumxw.jpg)
+
+
+
+> 删除所有缺失值行
+
+
+
+```
+df2.dropna()
+```
+
+
+
+> 查看帮助文档
+
+
+
+```
+?df2.dropna
+```
+
+
+
+> revome duplicate data
+
+
+
+- 查看duplicate数量
+
+  
+
+```
+df.duplicated().sum()
+```
+
+
+
+- 可视化duplicate值
+
+```
+df.loc[df.duplicated(),:]
+df.loc[df.duplicated(keep='last'),:]
+df.loc[df.duplicated(keep='first'),:]
+```
+
+
+
+- 删除重复值
+
+
+
+```
+df.drop_duplicates(keep='first').shape
+df.drop_duplicates(keep='last').shape
+df.drop_duplicates(keep=False).shape
+```
+
+
+
+- 仅仅考虑部分列
+
+````
+df.drop_duplicates(subset=['City','Colors Reported','Shape Reported']).shape
+````
+
+
+
+
+
+参考链接：
+
+https://www.geeksforgeeks.org/python-pandas-dataframe-drop_duplicates/
+
+https://www.youtube.com/watch?v=bFVMR1qfzXo
+
+
+
+##### Inconsistency data
+
+
+
+```
+df=pd.read_csv('ufo.csv',dtype={'City':str})
+df.dtypes
+```
+
+
+
+
+
+##### Dimensionality reduction
+
+
+
+```
+df.describe()
+df.shape()
+df.describe(exclude='number')
+```
+
+
+
+
+
+##### Normalization
+
+
+
+ ```python
+from sklearn import preprocessing
+names = df2.columns
+scaler = preprocessing.StandardScaler()
+df3=scaler.fit_transform(df2)
+scaled_df = pd.DataFrame(df3,columns=names)
+ ```
+
+
+
+
+
+```python
+preprocessing.minmax_scale(df2,feature_range=(-1,1))
+preprocessing.scale(df2)
+```
+
+
+
+![image-20200515152806294](https://tva1.sinaimg.cn/large/007S8ZIlgy1get61z2b6hj30q40r241n.jpg)
+
+
+
+参考资料:https://morvanzhou.github.io/tutorials/machine-learning/sklearn/3-1-normalization/
+
+
+
+
+
+##### Template
+
+
+
+![image-20200515153634692](https://tva1.sinaimg.cn/large/007S8ZIlgy1get6as6y2yj316s0agaib.jpg)
+
+
+
+![image-20200515161751187](https://tva1.sinaimg.cn/large/007S8ZIlgy1get7hps0o7j31100csjvv.jpg)
