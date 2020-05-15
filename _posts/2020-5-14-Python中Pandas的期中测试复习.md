@@ -1,4 +1,5 @@
 ---
+
 layout: post
 author: LIU,HONGYANG
 tags: [Python]
@@ -11,6 +12,8 @@ tags: [Python]
 
 
 ##### 创建一个DataFrame
+
+
 
 ```python
 import pandas as pd
@@ -26,8 +29,6 @@ fruit_sales = pd.DataFrame(data,columns={"Apples","Bananas"},index=['2017 Sales'
 
 
 
-
-
 ##### 为DataFrame指定Index
 
 
@@ -37,8 +38,6 @@ Series没有Column名称
 ```python
 df = pd.DataFrame({'Bob':['I liked it.', 'It was awful.'],'Sue':['Pretty good.', 'Bland.']},index=['Product A','Product B'])
 ```
-
-
 
 
 
@@ -95,15 +94,11 @@ df['country'][0]
 
 
 
-### 考点
+### Mid-term考点
 
 
 
 ##### missing data
-
-
-
-> 常见方法
 
 
 
@@ -114,28 +109,28 @@ df['country'][0]
 
 
 
-查看缺失值个数
+>  查看缺失值个数
 
-```
+```python
 df.isnull().sum()
 ```
 
 
 
-查看非缺失值个数
+>  查看非缺失值个数
 
 ```
 df.notnull().sum()
 df.notnull().sum(axis=0)
 ```
 
-axis=0：计算行个数
+- axis=0：计算行个数
 
-axis=1:   计算列个数
+- axis=1:   计算列个数
 
 
 
-查看City列缺失的文本
+> 查看City列缺失的文本
 
 ```
 df[df.City.isnull()]
@@ -143,7 +138,7 @@ df[df.City.isnull()]
 
 
 
-删除缺失值
+>  删除缺失值
 
 ```
 df.dropna(how='any').shape
@@ -151,7 +146,7 @@ df.dropna(how='any').shape
 
 
 
-删除City或Colors Reported列中有缺失值的数
+> 删除City或Colors Reported列中有缺失值的数
 
 ```
 df.dropna(subset=['City','Colors Reported']).shape
@@ -159,7 +154,7 @@ df.dropna(subset=['City','Colors Reported']).shape
 
 
 
-删除City且Colors Reported列中有缺失值的数
+>  删除City且Colors Reported列中有缺失值的数
 
 ```
 df.dropna(subset=['City','Colors Reported'],how='all').shape
@@ -167,7 +162,7 @@ df.dropna(subset=['City','Colors Reported'],how='all').shape
 
 
 
-查看属性值
+> 查看属性值
 
 ```
 df.State.value_counts()
@@ -176,13 +171,11 @@ df.City.value_counts(dropna=False)
 
 
 
-填充缺失值
+> 填充缺失值
 
 ```
 df['Colors Reported'].fillna(value='Red',inplace=True)
 ```
-
-
 
 ```
 df["Shape Reported"].fillna( method ='ffill',inplace = True) 
@@ -210,11 +203,11 @@ downcast : It takes a dict which specifies what dtype to downcast to which one. 
 
 
 
-剩余参考链接: https://www.geeksforgeeks.org/working-with-missing-data-in-pandas/
+参考链接: https://www.geeksforgeeks.org/working-with-missing-data-in-pandas/
 
 
 
-替换
+> 替换
 
 ```
 df['Colors Reported']=df['Colors Reported'].replace(to_replace ="Red", 
@@ -224,9 +217,7 @@ df['Colors Reported']=df['Colors Reported'].replace(to_replace ="Red",
 
 
 
-
-
-使用参数填充
+> 使用参数填充
 
 ```
 df2.interpolate(method='values',limit_direction ='both')
@@ -242,7 +233,7 @@ df2.interpolate(method='values',limit_direction ='both')
 
 
 
-重命名:
+>  重命名
 
 
 
@@ -252,13 +243,32 @@ df.rename(columns={'DURATION':'TIME'})
 
 
 
-填充0
+> 填充0
+
+
 
 ```
 df.fillna(0)
 ```
 
+其中value参数省略
+
+> 填充均值
 
 
-填充均值
 
+```
+df2.fillna(df2['B'].mean())
+```
+
+
+
+
+
+![image-20200515132209345](https://tva1.sinaimg.cn/large/007S8ZIlgy1get2ewhx8kj309c0ao74l.jpg)
+
+
+
+
+
+![image-20200515132147559](https://tva1.sinaimg.cn/large/007S8ZIlgy1get2enmf1fj30la0aumxw.jpg)
