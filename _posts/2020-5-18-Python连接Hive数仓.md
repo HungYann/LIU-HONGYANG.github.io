@@ -335,6 +335,10 @@ sudo netstat -anp|grep 100000
 
 
 
+
+
+
+
 ### 参考文章：
 
 
@@ -345,13 +349,9 @@ https://www.jianshu.com/p/651fb104088c
 
 
 
-
-
 2.Mac 安装 thrift-sasl:
 
 https://www.jianshu.com/p/7fa6aad1d2b2
-
-
 
 
 
@@ -367,13 +367,13 @@ https://www.cnblogs.com/yanshw/p/11792799.html
 
 
 
-
-
 5.Step by Step Guide Connecting HiveServer2 using Python Pyhive：
 
 https://dwgeek.com/guide-connecting-hiveserver2-using-python-pyhive.html/
 
 
+
+___
 
 
 
@@ -381,7 +381,7 @@ https://dwgeek.com/guide-connecting-hiveserver2-using-python-pyhive.html/
 
 https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.6.5/bk_data-access/content/beeline-vs-hive-cli.html
 
-### 
+
 
 7.Setting Up HiveServer2：
 
@@ -407,13 +407,15 @@ https://blog.csdn.net/u011495642/article/details/84305944
 
 
 
-11. hive is not allowed to impersonate hive:
+11.hive is not allowed to impersonate hive:
 
 https://stackoverflow.com/questions/40603714/hive-is-not-allowed-to-impersonate-hive
 
 
 
-12. How to access hive from python: 
+
+
+12.How to access hive from python: 
 
 https://community.cloudera.com/t5/Support-Questions/How-to-access-hive-from-python/td-p/184885
 
