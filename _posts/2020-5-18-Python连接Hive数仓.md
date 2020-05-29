@@ -431,3 +431,9 @@ https://www.jianshu.com/p/4e5ed1d6f284
 
 https://mapr.com/support/s/article/How-to-connect-R-to-Hiveserver2-using-hive-jdbc?language=en_US
 
+
+
+15.python 连接hive：
+
+http://www.zhangdongshengtech.com/article-detials/267
+
