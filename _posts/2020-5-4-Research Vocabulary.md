@@ -20,6 +20,16 @@ such hashtags are conventions created by users that become largely adopted
 attitude to the collection and analysis of personal data.
 ```
 
+> Advocated 
+
+
+
+```
+They advocate a process that they call environmental analysis
+```
+
+
+
 
 
 ##### B
