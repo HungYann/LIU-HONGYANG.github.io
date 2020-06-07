@@ -71,10 +71,6 @@ ENTRYPOINT ["jekyll","build","--destination=/var/www/html"]
 
 
 
-
-
-
-
 ```{}
 docker build -t taiyangyixi2/jekyll .
 ```
@@ -165,9 +161,11 @@ git clone https://github.com/jamtur01/james_blog.git
 ```
 
 在这个目录下可以看到一个启用了Twitter Bootstrap的最基础的Jekyll博客。如果你也想使用这个博客，可以修改```_config.yml```文件和主题，以符合你的要求
+
 ```{}
 docker run -v /home/james_blog:/data/ --name james_blog taiyangyixi2/jekyll
 ```
+
 运行结果
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfjot49vkcj317605s3zh.jpg)
@@ -186,6 +184,7 @@ docker run -v /home/james_blog:/data/ --name james_blog taiyangyixi2/jekyll
 ```{}
 docker run -d -P --volumes-from james_blog taiyangyixi/apache
 ```
+
 ```{}--volumes-from```把指定容器里的所有卷都加入新创建的容器里
 
 Apache容器可以访问之前创建的james_blog容器里的/var/www/html卷中存放的编译后的Jekyll网站。即便james_blog容器没有运行，Apache容器也可以访问这个卷。不过，容器必须存在，如果用**docker rm**命令删除了james_blog容器，那么这个卷和卷里的内容也就不存在了。
