@@ -56,9 +56,7 @@ https://www.indexmundi.com/commodities/?commodity=crude-oil&months=360
 
 
 
-![1591508263762](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfjo6mqb28g31ib0u0akc.gif)
-
-
+![Screenshot 2020-06-07 at 13.37.22](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfjodt428rj31ib0u0dvn.jpg)
 
 
 
