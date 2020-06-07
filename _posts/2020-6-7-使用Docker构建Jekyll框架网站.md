@@ -1,7 +1,7 @@
 ---
-layout:posts
+layout: posts
 author: LIU,HONGYANG
-tags:[Docker]
+tags: [Docker]
 ---
 
 
@@ -16,23 +16,14 @@ tags:[Docker]
 目录
 
 
-- [Jekyll基础镜像](#1)
-
-- [构建Jekyll基础镜像](#2)
-
-- [Apache镜像](#3)
-
-- [构建Jekyll Apache镜像](#4)
-
-- [创建Apache容器](#5)
-
-- [查看Apache容器端口](#6)
-
-- [更新Jekyll网站](#7)
 
 
 
-<h4 id='1'>Jekyll基础镜像</h4>
+#### Jekyll基础镜像
+
+
+
+
 
 ```
 mkdir jekyll
@@ -75,7 +66,12 @@ ENTRYPOINT ["jekyll","build","--destination=/var/www/html"]
 最后一句命令的意思就是每次启动的时候就将/data下的源文件编译成可发布的网站内容，并放在/var/www/html中供下面的apache使用
 
 
-<h4 id='2'>构建Jekyll基础镜像</h4>
+
+#### 构建Jekyll基础镜像
+
+
+
+
 
 
 
@@ -85,7 +81,11 @@ docker build -t taiyangyixi2/jekyll .
 
 
 
-<h4 id='3'>Apache镜像</h4>
+#### Apache镜像
+
+
+
+
 
 
 创建Apache Dockerfile
@@ -131,12 +131,19 @@ Dockerfile构建了一个镜像，
 然后使用VOLUME指令创建一个卷，
 即/var/www/html/,用来存放编译后的Jekyll网站，然后将```/var/www/html```设置为工作目录
 
-
 使用ENV设置必要的环境变量，创建了必要的目录
 并设置了EXPOSE公开了80端口。
 最后指定了ENTRYPOINT和CMD指令组合来在容器启动时默认运行Apache.
 
-<h4 id='4'>构建Jekyll Apache镜像</h4>
+
+
+#### 构建Jekyll Apache镜像
+
+
+
+
+
+
 
 
 ```{}
@@ -169,7 +176,11 @@ docker run -v /home/james_blog:/data/ --name james_blog taiyangyixi2/jekyll
 把本地的james_blog目录作为```/data/```卷挂在容器汇中。
 容器已经拿到网站的源代码，并将其构建到已经编译的网站，存放到/var/www/html目录
 
-<h4 id='5'>创建Apache容器</h4>
+
+
+#### 创建Apache容器
+
+
 
 
 ```{}
@@ -179,7 +190,11 @@ docker run -d -P --volumes-from james_blog taiyangyixi/apache
 
 Apache容器可以访问之前创建的james_blog容器里的/var/www/html卷中存放的编译后的Jekyll网站。即便james_blog容器没有运行，Apache容器也可以访问这个卷。不过，容器必须存在，如果用**docker rm**命令删除了james_blog容器，那么这个卷和卷里的内容也就不存在了。
 
-<h4 id='6'>查看Apache容器端口</h4>
+
+
+#### 查看Apache容器端口
+
+
 
 
 ```{}
@@ -192,7 +207,10 @@ docker port  30d486b77899 80
 ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfjosw0qe7j31br0u00wv.jpg)
 
 
-<h4 id='7'>更新Jekyll网站</h4>
+
+#### 更新Jekyll网站
+
+
 
 
 ```{}
