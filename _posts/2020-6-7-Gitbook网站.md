@@ -6,6 +6,8 @@ tags: [Git]
 
 
 
+
+
 ### 脚本命令：
 
 
@@ -15,6 +17,8 @@ $ gitbook --version
 CLI version: 2.3.2
 GitBook version: 3.2.3
 ```
+
+
 
 
 
@@ -35,7 +39,9 @@ info: >> generation finished with success in 3.7s !
 
 
 
-**bash.sh**脚本命令
+**bash.sh**
+
+脚本命令
 
 ```
 #!/usr/bin/env sh
@@ -72,8 +78,6 @@ cd -
 
 
 
-
-
 其中:
 
 ```
@@ -88,11 +92,11 @@ git push -f origin master:gh-pages
 
 
 
-
-
 上传完毕即配置成功：
 
 ![image-20200607191318547](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfjxtdv9ldj31jl0u045k.jpg)
+
+
 
 
 

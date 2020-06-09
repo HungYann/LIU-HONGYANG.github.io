@@ -26,7 +26,7 @@ sudo passwd root
 
 切换成root用户，获得root权限
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190816225624740-1681250977.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfmfq1n9utj30wy0ogjud.jpg)
 
  
 
@@ -36,6 +36,6 @@ sudo passwd root
 
 exit 退出，回到初始用户 
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190816225820068-1918473740.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfmfpxrvm5j30xa0ouwi3.jpg)
 
  
