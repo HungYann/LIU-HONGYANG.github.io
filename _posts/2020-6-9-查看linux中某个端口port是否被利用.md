@@ -12,7 +12,7 @@ tags: [Linux]
 
 (1)lsof -i:端口号查看某个端口是否被占用
 
-![img](https://img2018.cnblogs.com/blog/1067977/201910/1067977-20191019131607669-1008164825.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrljlz9cej30na01oaa6.jpg)
 
  
 
@@ -20,7 +20,7 @@ tags: [Linux]
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201910/1067977-20191019131946429-201691523.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrljppwx1j30uu0h4go1.jpg)
 
  
 
@@ -32,7 +32,7 @@ tags: [Linux]
 
 **netstat** -- show network status
 
-![img](https://img2018.cnblogs.com/blog/1067977/201910/1067977-20191019132237549-1129622490.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrljvdqkgj30uy0eiwi2.jpg)
 
  （3）杀掉进程
 

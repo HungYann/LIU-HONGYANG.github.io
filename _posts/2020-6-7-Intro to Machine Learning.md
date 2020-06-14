@@ -40,7 +40,7 @@ After the model has been fit, you can apply it to new data to predict prices of 
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190907112311362-827265082.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm8e09qsj30sw0i8782.jpg)
 
  
 
@@ -66,7 +66,7 @@ After the model has been fit, you can apply it to new data to predict prices of 
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190907112958350-118874355.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm8kjpe8j30uy0aidjg.jpg)
 
  
 
@@ -258,7 +258,7 @@ https://scikit-learn.org/stable/supervised_learning.html#supervised-learning
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190907201219803-1201151481.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm8ors8sj30tw0ka0v9.jpg)
 
  
 
@@ -274,7 +274,7 @@ The more leaves we allow the model to make, the more we move from the underfitti
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190907204138392-1656845590.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm90ontrj30uq0j0tck.jpg)
 
  
 
@@ -318,7 +318,7 @@ The more leaves we allow the model to make, the more we move from the underfitti
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190907205219357-1912315481.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm8wlvp4j30um06umyu.jpg)
 
  
 
@@ -362,7 +362,7 @@ one of the best features of Random Forest models is that they generally work rea
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190907213214349-576324729.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm8sv8e6j30u002wwej.jpg)
 
  
 

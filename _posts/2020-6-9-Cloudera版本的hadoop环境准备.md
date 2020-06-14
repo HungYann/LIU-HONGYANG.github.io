@@ -26,7 +26,7 @@ https://www.virtualbox.org/wiki/Downloads
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190816120725806-1336093766.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm1ez24hj30xy08u78t.jpg)
 
  
 
@@ -40,7 +40,7 @@ https://downloads.cloudera.com/demo_vm/virtualbox/cloudera-quickstart-vm-5.4.2-0
 
 里面集成了hadoop环境 
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190816120830222-293617154.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm1bbfmqj319e0q2n1k.jpg)
 
  
 
@@ -52,6 +52,6 @@ https://downloads.cloudera.com/demo_vm/virtualbox/cloudera-quickstart-vm-5.4.2-0
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190816121226868-705859933.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm180yhrj317k0f2gnz.jpg)
 
  

@@ -76,7 +76,7 @@ fifa_data = pd.read_csv(file_path, index_col="Date", parse_Dates=True)
 
  
 
- ![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906093023354-1802558650.png)
+ ![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm66h3roj30f60aoadn.jpg)
 
  
 
@@ -108,7 +108,7 @@ This tells the notebook to understand the each row label as a date (as opposed t
 
 fifa_data.head()
 
- ![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906093047367-1739555124.png)
+ ![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrma7m7muj30ue08cgne.jpg)
 
  
 
@@ -126,7 +126,7 @@ fifa_data.head()
 
  
 
- ![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906093237355-555464177.png)
+ ![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmaezfgsj30wq0n4wod.jpg)
 
  
 
@@ -170,7 +170,7 @@ plt.ylabel
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906094338372-2076970637.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmajt1i8j30u40e4jum.jpg)
 
  
 
@@ -190,7 +190,7 @@ plt.ylabel
 
 　　plt.ylabel("Arrival delay (in minutes)"
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906092826353-5131206.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmancno8j30ui0jejso.jpg)
 
  
 
@@ -244,7 +244,7 @@ This ensures that the vlaues for each cell appear on the chart.
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906103025351-40007621.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmbbfim3j30ui0hw0xj.jpg)
 
  
 
@@ -258,7 +258,7 @@ This ensures that the vlaues for each cell appear on the chart.
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906104135351-1457564867.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmb8g9vhj30ly0dwtdj.jpg)
 
  
 
@@ -282,7 +282,7 @@ the vertical y-axis (`y=insurance_data['charges']`)
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906104205637-1695072115.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmb5rq6wj30ly0dmaeb.jpg)
 
  
 
@@ -300,7 +300,7 @@ the vertical y-axis (`y=insurance_data['charges']`)
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906104227362-1850183646.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmb2z5d2j30mm0dkwji.jpg)
 
  
 
@@ -318,7 +318,7 @@ the vertical y-axis (`y=insurance_data['charges']`)
 
  
 
-**![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906092817472-457463117.png)**
+**![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmb00qfsj30ui0jejso.jpg)**
 
  
 
@@ -338,7 +338,7 @@ the vertical y-axis (`y=insurance_data['charges']`)
 
  
 
- ![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906105411488-1530899439.png)
+ ![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmaw8z4sj30kc0cuabb.jpg)
 
  
 
@@ -350,6 +350,6 @@ the vertical y-axis (`y=insurance_data['charges']`)
 
 下图显示，在seaborn中，选择图形需要根据需求来决定
 
- ![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190906092849445-518096321.png)
+ ![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrmaslzv7j30ss0esn21.jpg)
 
  

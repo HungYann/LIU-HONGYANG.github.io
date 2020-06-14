@@ -53,7 +53,7 @@ ENTRYPOINT ["jekyll","build","--destination=/var/www/html"]
 
 构建成功后结果如下：
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfjotbiaelj30ka044q3g.jpg)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm58qsiwj30ka044mxo.jpg)
 
 ```/data```,用来存放网站源代码
 

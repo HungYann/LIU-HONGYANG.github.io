@@ -126,7 +126,7 @@ plot(bmi$Y1980,bmi$Y2008)
 
 
 
- ![img](https://img2018.cnblogs.com/blog/1067977/201910/1067977-20191027193446384-165871846.png)
+ ![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm9m2838j30qq0swn3h.jpg)
 
  
 
@@ -146,6 +146,6 @@ plot(bmi$Y1980,bmi$Y2008)
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201910/1067977-20191027192301035-163696113.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm9ri4izj30pg0ee777.jpg)
 
  

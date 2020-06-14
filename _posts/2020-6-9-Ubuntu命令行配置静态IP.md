@@ -10,7 +10,7 @@ tags: [Linux]
 
 （1）首先我们使用ifconfig命令查询一下网卡名称
 
- ![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190817213304563-1653720570.png)
+ ![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrlfs65tzj318a0kkgtq.jpg)
 
 
 

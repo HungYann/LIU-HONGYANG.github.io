@@ -38,7 +38,7 @@ uname -a
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190817081951800-199373160.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrlf3dwkyj317w0reacg.jpg)
 
  
 
@@ -52,7 +52,7 @@ hostname <主机名>
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190817082354192-556734807.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrlf4unyfj318e0nc77m.jpg)
 
  
 
@@ -68,7 +68,7 @@ hostname <主机名>
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190817082445086-400632505.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrlf8oih1j31860n0my4.jpg)
 
  
 
@@ -86,7 +86,7 @@ hostname <主机名>
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190817083109621-169656609.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrlfiduebj318e0oyab4.jpg)
 
  
 
@@ -102,7 +102,7 @@ hostname <主机名>
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201908/1067977-20190817083423691-348231557.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrlfcbto9j31860q00vd.jpg)
 
  
 

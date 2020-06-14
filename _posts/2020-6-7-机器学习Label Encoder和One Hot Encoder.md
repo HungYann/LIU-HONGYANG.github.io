@@ -26,7 +26,7 @@ df = pd.get_dummies(df)
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190911112858347-261175133.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm1lyibzj30la0h2482.jpg)
 
  
 
@@ -60,7 +60,7 @@ X[:, 0] = labelencoder.fit_transform(X[:, 0])
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190911113612024-248604902.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm1pbssej30gk08s79b.jpg)
 
  
 
@@ -106,7 +106,7 @@ Label Encoder的问题：
 
  
 
-![img](https://img2018.cnblogs.com/blog/1067977/201909/1067977-20190911114402532-921928784.png)
+![img](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrm1ugbtej30rw0howpq.jpg)
 
  
 
