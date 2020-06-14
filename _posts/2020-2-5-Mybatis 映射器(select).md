@@ -1,7 +1,7 @@
 ```
 layout: post
 author: LIU,HONGYANG
-tags: [JavaEE]
+tags: [Mybatis]
 ```
 
 
