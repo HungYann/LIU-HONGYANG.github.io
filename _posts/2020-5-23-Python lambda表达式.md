@@ -6,6 +6,10 @@ tags: [Python]
 
 
 
+
+
+![Screenshot 2020-06-16 at 18.00.40](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfugop3107j31fs0qwqe1.jpg)
+
 要说在python当中，最强大的数据运输库是什么，很多人会认为是pandas，确实是！
 
 pandas底层使用c语言编写，处理大行数据是一定快过excel的
@@ -71,3 +75,47 @@ df['Year'].apply(lambda x: x+10 if x>10 else x+2)
 ```
 
 ![image-20200523002247791](https://tva1.sinaimg.cn/large/007S8ZIlgy1gf1ougnsicj30ri07gt9g.jpg)
+
+
+
+
+
+##### 数值替换
+
+
+
+```python
+df["Stars"].value_counts()
+```
+
+
+
+![image-20200616214025708](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfugn9w8ktj30kg06kaal.jpg)
+
+
+
+```python
+X = []
+for x in df["Stars"]:
+    if(x<3):
+        X.append('L')
+    elif(x>3 and x<5):
+        X.append('M')
+    else:
+        X.append('H')
+
+```
+
+
+
+
+
+```python
+pd.Series(data=X).value_counts()
+df["Stars"] = X
+df["Stars"].value_counts()
+```
+
+
+
+![image-20200616214207405](https://tva1.sinaimg.cn/large/007S8ZIlgy1gfugozuxvhj30mg06g74t.jpg)
