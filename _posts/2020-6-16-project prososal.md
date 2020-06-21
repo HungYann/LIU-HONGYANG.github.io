@@ -6,6 +6,48 @@ tags: [Research]
 
 
 
+数据地址：
+
+
+
+
+
+
+
+
+
+
+
+> Student Performance Data Set
+
+https://archive.ics.uci.edu/ml/datasets/student+performance
+
+
+
+
+
+
+
+> Data Catalogue:
+
+https://catalogue.data.gov.bc.ca/dataset?res_format=csv&type=Dataset&sector=Education
+
+
+
+
+
+
+
+
+
+
+
+
+
+___
+
+
+
 You can send the research intent via email. Should include intro, problem statement, objectives, dataset used, tools used and reference
 
 
