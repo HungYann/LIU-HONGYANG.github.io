@@ -6,15 +6,45 @@ tags: [Research]
 
 
 
+
+
+````
+ Improving the Fraud Detection on the Recruitment Posting by using LSTM
+````
+
+
+
+Dashboard:
+
+https://demos.datasciencedojo.com/demo/titanic/
+
+
+
+Credit Card Fraud Detection Using Deep Learning(PyTorch):
+
+https://medium.com/@vkansal/credit-card-fraud-detection-using-deep-learning-pytorch-47f680a8c5be
+
+
+
+Build Your First Text Classification model using PyTorch:
+
+https://www.analyticsvidhya.com/blog/2020/01/first-text-classification-in-pytorch/
+
+
+
+Spam-Ham Classification Using LSTM in PyTorch:
+
+https://medium.com/analytics-vidhya/spam-ham-classification-using-lstm-in-pytorch-950daec94a7c
+
+
+
+
+
+
+
+
+
 数据地址：
-
-
-
-
-
-
-
-
 
 
 
