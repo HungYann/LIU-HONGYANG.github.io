@@ -14,6 +14,34 @@ tags: [Research]
 
 
 
+
+
+Mutli class text classification:
+
+https://towardsdatascience.com/multi-class-text-classification-with-lstm-1590bee1bd17
+
+
+
+Pytorch:
+
+
+
+https://www.analyticsvidhya.com/blog/2019/09/introduction-to-pytorch-from-scratch/?utm_source=blog&utm_medium=building-image-classification-models-cnn-pytorch
+
+
+
+machinehack:
+
+https://www.machinehack.com/course-cat/practise/
+
+
+
+Pytorch:
+
+https://pytorch.org/
+
+
+
 Dashboard:
 
 https://demos.datasciencedojo.com/demo/titanic/
@@ -35,8 +63,6 @@ https://www.analyticsvidhya.com/blog/2020/01/first-text-classification-in-pytorc
 Spam-Ham Classification Using LSTM in PyTorch:
 
 https://medium.com/analytics-vidhya/spam-ham-classification-using-lstm-in-pytorch-950daec94a7c
-
-
 
 
 
@@ -232,3 +258,12 @@ WordCloud in DASH
 
 https://community.plotly.com/t/wordcloud-in-dash/11407/17
 
+
+
+
+
+> Fault Tolenrce
+
+
+
+https://github.com/explosion/spaCy/issues/4577
