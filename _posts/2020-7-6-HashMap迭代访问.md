@@ -10,6 +10,8 @@ tags: [Java]
 
 
 
+>  Map
+
 
 
 HashMap的迭代访问取出其中的元素，
@@ -32,6 +34,8 @@ while(iterator.hasNext()){
 ```
 
 
+
+> HashSet
 
 对HashSet进行排序，使用
 
@@ -72,9 +76,15 @@ public class SetDemo {
 
 使用Set, 转化成List
 
+其中list包含重复的元素，而set包含独特的元素
+
 ```java
 new ArrayList(set);
 ```
 
 
+
+HashSet中常见的方法：
+
+![image-20200706211048885](https://tva1.sinaimg.cn/large/007S8ZIlgy1gghk6ksh5vj31bc0sygqs.jpg)
 
