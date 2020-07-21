@@ -267,3 +267,31 @@ https://community.plotly.com/t/wordcloud-in-dash/11407/17
 
 
 https://github.com/explosion/spaCy/issues/4577
+
+
+
+
+
+spam
+
+[https://github.com/huai99/Email-Spam-Detection-Python/blob/master/Email%20Spam%20(%20Medium%20Part%202).ipynb](https://github.com/huai99/Email-Spam-Detection-Python/blob/master/Email Spam ( Medium Part 2).ipynb)
+
+https://towardsdatascience.com/spam-filtering-system-with-deep-learning-b8070b28f9e0
+
+https://spamassassin.apache.org/old/publiccorpus/
+
+
+
+https://github.com/sharad18/Fake_Job_Posting/blob/master/Prediciton.ipynb
+
+
+
+https://towardsdatascience.com/predicting-fake-job-postings-part-2-predictive-analysis-3119ba570c35
+
+
+
+https://towardsdatascience.com/email-spam-detection-1-2-b0e06a5c0472
+
+
+
+https://towardsdatascience.com/spam-filtering-system-with-deep-learning-b8070b28f9e0
