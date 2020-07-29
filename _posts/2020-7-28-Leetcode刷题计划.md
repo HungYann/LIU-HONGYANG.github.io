@@ -95,3 +95,9 @@ tags: [数据结构与算法]
 
 
 ![Screenshot 2020-07-28 at 23.02.48](https://tva1.sinaimg.cn/large/007S8ZIlgy1gh731x1ogsj30l40eqwgv.jpg)
+
+
+
+##### References:
+
+链接：https://www.zhihu.com/question/36738189/answer/1329150447
