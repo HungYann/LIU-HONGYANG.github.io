@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Become stronger">
+    <meta name="keywords"  content="">
+    
+    <title>存档 - 太阳以西</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/hongyang-blog/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/hongyang-blog/archive/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/hongyang-blog/css/bootstrap.min.css">
+
+    <!-- font-awesome CSS -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/hongyang-blog/css/hux-blog.min.css">
+
+    <!-- Highlight CSS -->
+    <link rel="stylesheet" href="/hongyang-blog/css/github.min.css">
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/hongyang-blog/">·快乐的皮卡丘呦呦·</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/hongyang-blog/">首页</a>
+                    </li>
+                    <li>
+                        <a href="/hongyang-blog/archive">存档</a>
+                    </li>
+                    <li>
+                        <a href="/hongyang-blog/about">关于</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- 
+Credits: this page shamelessly borrowed a lot from:
+https://github.com/kitian616/jekyll-TeXt-theme
+-->
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('/hongyang-blog/img/bg/bg_tag.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading" id="tag-heading">
+                    <h1>存档</h1>
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			<!-- Tags (as filter) -->
+			<div id='tag_cloud' class="tags tags-sup js-tags">
+				<a class="tag-button--all" data-encode="">
+					所有
+					<sup>6</sup>
+				</a>
+
+				
+        
+				
+				
+				
+				<a data-sort="0003"
+					data-encode="Java"
+					class="tag-button"
+					title="Java" rel="3">
+					Java
+					<sup>3</sup>
+				</a>
+				
+				<a data-sort="0004"
+					data-encode="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95"
+					class="tag-button"
+					title="数据结构与算法" rel="2">
+					数据结构与算法
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0005"
+					data-encode="%E8%AF%B4%E6%98%8E"
+					class="tag-button"
+					title="说明" rel="1">
+					说明
+					<sup>1</sup>
+				</a>
+			</div>
+
+            <!-- Article List -->
+			<div class="mini-post-list js-result d-none"><section>
+				<span class="fa listing-seperator">
+					<span class="tag-text">2020</span>
+				</span><div class="post-preview item" data-tags="Java">
+				    <a href="/hongyang-blog/2020/09/05/IO%E6%96%87%E4%BB%B6/">
+				        <h2 class="post-title">
+                            Io文件
+				        </h2>
+				        
+				    </a>
+					<hr>
+				</div><div class="post-preview item" data-tags="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">
+				    <a href="/hongyang-blog/2020/09/04/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E8%8C%83%E5%9B%B4%E5%92%8C/">
+				        <h2 class="post-title">
+                            二叉搜索树的范围和
+				        </h2>
+				        
+				    </a>
+					<hr>
+				</div><div class="post-preview item" data-tags="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">
+				    <a href="/hongyang-blog/2020/09/03/617.-%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/">
+				        <h2 class="post-title">
+                            617. 合并二叉树
+				        </h2>
+				        
+				    </a>
+					<hr>
+				</div><div class="post-preview item" data-tags="Java">
+				    <a href="/hongyang-blog/2020/09/03/%E7%89%9B%E5%AE%A2java%E7%BB%83%E4%B9%A0%E9%A2%98%E9%94%99%E9%A2%98%E6%80%BB%E7%BB%93-%E4%BA%8C/">
+				        <h2 class="post-title">
+                            牛客java练习题错题总结（二）
+				        </h2>
+				        
+				    </a>
+					<hr>
+				</div><div class="post-preview item" data-tags="Java">
+				    <a href="/hongyang-blog/2020/09/02/%E7%89%9B%E5%AE%A2Java%E7%BB%83%E4%B9%A0%E9%A2%98%E9%94%99%E9%A2%98%E6%80%BB%E7%BB%93-%E4%B8%80/">
+				        <h2 class="post-title">
+                            牛客java练习题错题总结（一）
+				        </h2>
+				        
+				    </a>
+					<hr>
+				</div></section><section>
+				<span class="fa listing-seperator">
+					<span class="tag-text">2017</span>
+				</span><div class="post-preview item" data-tags="%E8%AF%B4%E6%98%8E">
+				    <a href="/hongyang-blog/2017/02/01/hello-world/">
+				        <h2 class="post-title">
+                            Hello world, 2017
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            欢迎使用
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div></section>
+		</div>
+	</div>
+</div>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/liu-hongyang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; ·快乐的皮卡丘呦呦· 2020
+                    <br>
+                    Powered by <a href="https://github.com/LIU-HONGYANG">LIU-HONGYANG</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=liu-hongyang&repo=LIU-HONGYANG.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<!-- jQuery -->
+<script src='/hongyang-blog/js/jquery.min.js '></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src='/hongyang-blog/js/bootstrap.min.js '></script>
+
+<!-- Custom Theme JavaScript -->
+<script src='/hongyang-blog/js/hux-blog.min.js '></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- Highlight.js -->
+<script>
+    async("https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js", function(){
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    async('/hongyang-blog/js/jquery.tagcloud.js',function(){
+        $.fn.tagcloud.defaults = {
+            //size: {start: 1, end: 1, unit: 'em'},
+            color: {start: '#bbbbee', end: '#2f93b4'},
+        };
+        $('#tag_cloud a').tagcloud();
+    })
+</script>
+<script src='/hongyang-blog/js/archive.js '></script>
+<script src='/hongyang-blog/js/snackbar.js '></script>
+<script src='/hongyang-blog/js/sw-registration.js '></script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Baidu Push-->
+<script>
+    // do not push in tag.html
+    if($('#tag_cloud').length == 0){
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    }
+</script>
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '07529a93af5fa9f808261a1318c3aba4';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+
+
+<!-- Image to hack wechat -->
+<img src="/hongyang-blog/img/icon_wechat.jpg" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

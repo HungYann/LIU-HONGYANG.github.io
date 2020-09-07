@@ -1,6 +1,12 @@
-# LIU-HONGYANG.github.io
-Share knowledge, Become Stronger  博客地址：https://liu-hongyang.github.io/
+---
+layout: page
+title: 博主介绍
+permalink: /about/
+---
 
 
 
-![](https://tva1.sinaimg.cn/large/00831rSTgy1gdd3genggbj31jq0u0qfs.jpg)
+
+##### 大家好！我是博主Leo！主修方向为大数据, 欢迎来到我的博客世界!
+
+![](https://tva1.sinaimg.cn/large/00831rSTgy1gd46cm3nqgj30u0140acf.jpg)

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Become stronger">
+    <meta name="keywords"  content="">
+    
+    <title>Io文件 - 太阳以西</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/hongyang-blog/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/hongyang-blog/2020/09/05/IO%E6%96%87%E4%BB%B6/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/hongyang-blog/css/bootstrap.min.css">
+
+    <!-- font-awesome CSS -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/hongyang-blog/css/hux-blog.min.css">
+
+    <!-- Highlight CSS -->
+    <link rel="stylesheet" href="/hongyang-blog/css/github.min.css">
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/hongyang-blog/">·快乐的皮卡丘呦呦·</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/hongyang-blog/">首页</a>
+                    </li>
+                    <li>
+                        <a href="/hongyang-blog/archive">存档</a>
+                    </li>
+                    <li>
+                        <a href="/hongyang-blog/about">关于</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/hongyang-blog/img/bg/海贼王.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/hongyang-blog/tags/#Java" title="Java">Java</a>
+                        
+                    </div>
+                    <h1>Io文件</h1>
+                    
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by LIU,HONGYANG on September 5, 2020</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h1 id="字节流">字节流</h1>
+
+<p>字节输入流：FileInputStream</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>read()</td>
+      <td>Reads a byte of data from this input stream</td>
+    </tr>
+    <tr>
+      <td>read(byte[] b)</td>
+      <td>Reads up to <code class="highlighter-rouge">b.length</code> bytes of data from this input stream into an array of bytes.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>字节输出流:  FileOutputStream</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>write()</td>
+      <td>Writes the specified byte to this file output stream.</td>
+    </tr>
+    <tr>
+      <td>write(byte[] b)</td>
+      <td>Writes <code class="highlighter-rouge">len</code> bytes from the specified byte array starting at offset <code class="highlighter-rouge">off</code> to this file output stream.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>inputstream(byte b)</p>
+
+<p>直接输入流读取字符串（一次仅读取一个字节）</p>
+
+<p>​	1.首先使用read()方法读取字节</p>
+
+<p>​	2.输入打印，用变量接收数据。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">FileInputStream</span> <span class="n">fis</span><span class="o">=</span> <span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">();</span>
+<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">while</span><span class="o">(((</span><span class="n">len</span><span class="o">=</span><span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">())!=-</span><span class="mi">1</span><span class="o">){</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span><span class="n">len</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gifv5cuxp9j31ve0h8go4.jpg" alt="image-20200905163943202" /></p>
+
+<p>每次只读取一个字节(byte), 每次仅读取一个字节，读取完毕后返回-1</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gifvc9gv7cj30hi0cct92.jpg" alt="image-20200905164624938" /></p>
+
+<h5 id="fileinputsteambytes-byte">FileInputSteam(bytes[] byte)</h5>
+
+<pre><code class="language-Java">FileInputStream fis = new FileInputStream("name or pathname");
+byte[] bytes = new byte[2];
+int len = fis.read(bytes);
+
+//打印读取的长度
+System.out.println(len);
+System.out.println(new String(bytes));
+
+</code></pre>
+
+<p>Java中new String(byte[] bytes)方法可以将字节转化成字符串的形式</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gifw0fa7irj31wq0hu0vz.jpg" alt="image-20200905170936769" /></p>
+
+<p>使用缓冲的方法打印字符串</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">FileInputStream</span> <span class="n">fileinputstream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">();</span>
+<span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
+<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">while</span><span class="o">(</span> <span class="o">(</span><span class="n">len</span><span class="o">=</span><span class="n">fileinputstream</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bytes</span><span class="o">))!=-</span><span class="mi">1</span> <span class="o">){</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">bytes</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">len</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gifwf7kf0dj31w20ouwjj.jpg" alt="image-20200905172350700" /></p>
+
+<h3 id="练习">练习</h3>
+
+<h5 id="文件复制">文件复制</h5>
+
+<p>从内存到文件</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nc">File</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">demo04</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">hello</span> <span class="o">=</span> <span class="o">{</span><span class="s">"你好"</span><span class="o">,</span><span class="s">"呀"</span><span class="o">};</span>
+
+        <span class="nc">FileOutputStream</span> <span class="n">fileOutputStream</span>  <span class="o">=</span> <span class="k">new</span> <span class="nc">FileOutputStream</span><span class="o">(</span><span class="s">"/Users/liuhongyang/Desktop/2.txt"</span><span class="o">,</span><span class="kc">true</span><span class="o">);</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="nc">String</span> <span class="nl">string:</span><span class="n">hello</span><span class="o">){</span>
+            <span class="n">fileOutputStream</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">string</span><span class="o">.</span><span class="na">getBytes</span><span class="o">());</span>
+            <span class="n">fileOutputStream</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">"\r"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">());</span>
+        <span class="o">}</span>
+
+
+        <span class="n">fileOutputStream</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h5 id="文件的读取复制inputstream-and-outputstream">文件的读取复制InputStream and OutputStream</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nc">File</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">demo04</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+
+        <span class="kt">long</span> <span class="n">s</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+        <span class="nc">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"/Users/liuhongyang/Desktop/1.png"</span><span class="o">);</span>
+        <span class="nc">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileOutputStream</span><span class="o">(</span><span class="s">"/Users/liuhongyang/Desktop/2.png"</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span> <span class="o">(</span><span class="n">len</span><span class="o">=</span><span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">())!=-</span><span class="mi">1</span><span class="o">){</span>
+            <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">len</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">fos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="kt">long</span> <span class="n">e</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"时间"</span><span class="o">+(</span><span class="n">e</span><span class="o">-</span><span class="n">s</span><span class="o">)+</span><span class="s">"毫秒"</span><span class="o">);</span>
+
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nc">File</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">demo04</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+
+        <span class="kt">long</span> <span class="n">s</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+        <span class="nc">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"/Users/liuhongyang/Desktop/1.png"</span><span class="o">);</span>
+        <span class="nc">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileOutputStream</span><span class="o">(</span><span class="s">"/Users/liuhongyang/Desktop/2.png"</span><span class="o">);</span>
+
+        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
+
+        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span> <span class="o">(</span><span class="n">len</span><span class="o">=</span><span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">())!=-</span><span class="mi">1</span><span class="o">){</span>
+            <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bytes</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">len</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">fos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="kt">long</span> <span class="n">e</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"时间"</span><span class="o">+(</span><span class="n">e</span><span class="o">-</span><span class="n">s</span><span class="o">)+</span><span class="s">"毫秒"</span><span class="o">);</span>
+
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h1 id="字符流">字符流</h1>
+
+<p>FileReader(String filename)构造方法</p>
+
+<p>FileReader(File file):一个文件</p>
+
+<p>字节流每次读取一个字节，字符流每次读取一个字符。使用方式相同。</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gifzwg34uqj30ic0l8mz6.jpg" alt="image-20200905192412317" /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">{</span>
+  	<span class="nc">FileReader</span> <span class="n">fileReader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileReader</span><span class="o">();</span>
+  	<span class="kt">char</span><span class="o">[]</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">chat</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
+  	<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">(</span> <span class="o">(</span><span class="n">len</span><span class="o">=</span> <span class="n">rileReader</span><span class="o">(</span><span class="n">c</span><span class="o">))!=-</span><span class="mi">1</span><span class="o">){</span>
+      	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">c</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">len</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="properties">Properties</h1>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gigqbc943aj31uy04mq4g.jpg" alt="image-20200906103758403" /></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gigqbqwnghj31v404a0u3.jpg" alt="image-20200906103818696" /></p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gigqc8kju4j31va06c0vg.jpg" alt="image-20200906103848334" /></p>
+
+<h1 id="inputstreamwriter和outputstreamwriter">InputStreamWriter和OutputStreamWriter</h1>
+
+<p>这两个的区别，首先inputstreamwriter是outputstreamwriter属于转换流</p>
+
+<p>InputStreamReader是将字符转换成字节</p>
+
+<p>OutputStreamWriter是将字节转换成字符</p>
+
+<h3 id="outputstreamwriter">OutputStreamWriter</h3>
+
+<p>字符流通向字节流的桥梁</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">OutputStreamWriter</span> <span class="n">osw</span><span class="o">=</span> <span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileOutputStream</span><span class="o">(</span><span class="s">"10_IO\\gbk.txt"</span><span class="o">),</span><span class="s">"GBK"</span><span class="o">);</span>
+
+<span class="n">osw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">"您好"</span><span class="o">);</span>
+<span class="n">osw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+<span class="n">osw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="inputstreamreader">InputStreamReader</h3>
+
+<p>字节流通向字符流的桥梁</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//1.创建InputStreamReader对象，构造方法中传递字节输入流和指定的编码表名称</span>
+<span class="nc">InputStreamReader</span> <span class="n">isr</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"10_IO\\gbk.txt"</span><span class="o">),</span><span class="s">"GBK"</span><span class="o">);</span>
+
+<span class="c1">//2.使用InputStreamReader对象中的方法read读取文件</span>
+
+<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">while</span><span class="o">((</span><span class="n">len</span><span class="o">=</span><span class="n">isr</span><span class="o">.</span><span class="na">read</span><span class="o">())!=-</span><span class="mi">1</span><span class="o">){</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printlb</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span><span class="n">len</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//3.释放资源</span>
+<span class="n">isr</span><span class="o">.</span><span class="na">close</span><span class="o">()</span>
+</code></pre></div></div>
+
+<h3 id="转换文件">转换文件</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nc">File</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">demo06</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+
+        <span class="c1">//字节流转换为字符流</span>
+        <span class="nc">InputStreamReader</span> <span class="n">ist</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"/Users/liuhongyang/Desktop/2.txt"</span><span class="o">),</span><span class="s">"UTF-8"</span><span class="o">);</span>
+        <span class="c1">//字符流转换为字节流</span>
+        <span class="nc">OutputStreamWriter</span> <span class="n">osw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OutputStreamWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileOutputStream</span><span class="o">(</span><span class="s">"/Users/liuhongyang/Desktop/1.txt"</span><span class="o">),</span><span class="s">"GBK"</span><span class="o">);</span>
+
+
+        <span class="kt">int</span> <span class="n">len</span><span class="o">;</span>
+
+        <span class="k">while</span><span class="o">(</span> <span class="o">(</span><span class="n">len</span><span class="o">=</span><span class="n">ist</span><span class="o">.</span><span class="na">read</span><span class="o">())!=-</span><span class="mi">1</span> <span class="o">){</span>
+            <span class="n">osw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">len</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">osw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">ist</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h1 id="序列化与反序列化">序列化与反序列化</h1>
+
+<p>把对象以流的形式，写入到文件中保存，叫写对象，也叫对象的序列化</p>
+
+<p>对象中不仅仅包含字符，还有字节</p>
+
+<p>ObjectOutputStream:对象的序列化</p>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gihbk4flgsj31hk0p41bf.jpg" alt="image-20200906225301843" /></p>
+
+<p>没有：NotSerializableException异常：必须实现Serializable接口，起到标记作用</p>
+
+<p>被static以及transient修饰的不能被序列化，序列化的都是对象</p>
+
+<h3 id="练习序列化集合">练习：序列化集合</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nc">File</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.ObjectInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.ObjectOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">demo07</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">());</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">());</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Person</span><span class="o">());</span>
+
+        <span class="nc">ObjectOutputStream</span> <span class="n">objectOutputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileOutputStream</span><span class="o">(</span><span class="s">"a.txt"</span><span class="o">));</span>
+
+        <span class="n">objectOutputStream</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+
+        <span class="nc">ObjectInputStream</span> <span class="n">objectInputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectInputStream</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"b.txt"</span><span class="o">));</span>
+
+        <span class="nc">Object</span> <span class="n">o</span> <span class="o">=</span> <span class="n">objectInputStream</span> <span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="o">(</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&gt;)</span><span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="nc">Person</span> <span class="nl">per:</span><span class="n">list2</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">per</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>serialVersionUID错误，可以手动添加序列号</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">42L</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h3 id="学习视频">学习视频：</h3>
+
+<p>https://www.bilibili.com/video/BV1Y7411y7rN?p=53</p>
+
+
+                <hr style="visibility: hidden;">
+
+                <!-- Baidu Share -->
+                
+
+                <!-- 来必力City版安装代码 -->
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/hongyang-blog/2020/09/04/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E8%8C%83%E5%9B%B4%E5%92%8C/" data-toggle="tooltip" data-placement="top" title="二叉搜索树的范围和">前一篇<br>
+                        <span>二叉搜索树的范围和</span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <hr>
+            </div>  
+
+    <!-- Side Catalog Container -->
+        
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/liu-hongyang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; ·快乐的皮卡丘呦呦· 2020
+                    <br>
+                    Powered by <a href="https://github.com/LIU-HONGYANG">LIU-HONGYANG</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=liu-hongyang&repo=LIU-HONGYANG.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<!-- jQuery -->
+<script src='/hongyang-blog/js/jquery.min.js '></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src='/hongyang-blog/js/bootstrap.min.js '></script>
+
+<!-- Custom Theme JavaScript -->
+<script src='/hongyang-blog/js/hux-blog.min.js '></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- Highlight.js -->
+<script>
+    async("https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js", function(){
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    async('/hongyang-blog/js/jquery.tagcloud.js',function(){
+        $.fn.tagcloud.defaults = {
+            //size: {start: 1, end: 1, unit: 'em'},
+            color: {start: '#bbbbee', end: '#2f93b4'},
+        };
+        $('#tag_cloud a').tagcloud();
+    })
+</script>
+<script src='/hongyang-blog/js/archive.js '></script>
+<script src='/hongyang-blog/js/snackbar.js '></script>
+<script src='/hongyang-blog/js/sw-registration.js '></script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Baidu Push-->
+<script>
+    // do not push in tag.html
+    if($('#tag_cloud').length == 0){
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    }
+</script>
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '07529a93af5fa9f808261a1318c3aba4';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+
+
+<!-- Image to hack wechat -->
+<img src="/hongyang-blog/img/icon_wechat.jpg" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
