@@ -1,7 +1,6 @@
 ---
 layout: post
 author: LIU,HONGYANG
-tags: [数据结构与算法]
 catalog: true
 tags: [学习计划]
 ---
