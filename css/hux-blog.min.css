@@ -700,7 +700,7 @@ article {
 
 blockquote {
 /*    border-left-color: forestgreen*/
-    color: forestgreen
+    color: forestgreen;
     font-style: italic;
     font-size: 0.95em;
     margin: 20px 0 20px;
