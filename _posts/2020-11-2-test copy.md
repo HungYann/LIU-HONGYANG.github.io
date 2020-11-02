@@ -6,6 +6,37 @@ tags: [说明]
 
 
 
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    /* Only change code below this line */
+
+
+​    
+​    /* Only change code above this line */
+  }
+</style>
+
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+
+
 
 
 函数 ${f(x)=a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}}+\cdots$ 函数 $${f(x)=a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}}+\cdots \tag{1.1}$$
