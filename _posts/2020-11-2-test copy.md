@@ -8,9 +8,13 @@ tags: [说明]
 
 
 
+函数 ${f(x)=a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}}+\cdots$ 函数 $${f(x)=a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}}+\cdots \tag{1.1}$$
 
 
 
+```latex
+$\sum_i^na_i$
+```
 
 
 
