@@ -6,19 +6,57 @@ tags: [说明]
 
 
 
-<style>
-  :root {
-    --penguin-size: 300px;
-    --penguin-skin: gray;
-    --penguin-belly: white;
-    --penguin-beak: orange;
-  }
-  @media (max-width: 350px) {
-    :root {
-      /* Only change code below this line */
 
-      /* Only change code above this line */
-    }
+
+
+
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Click here to view more <a href="#">cat photos</a>.</p>
+
+  <a href="#"><img src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+
+  <div>
+    <p>Things cats love:</p>
+    <ul>
+      <li>cat nip</li>
+      <li>laser pointers</li>
+      <li>lasagna</li>
+    </ul>
+    <p>Top 3 things cats hate:</p>
+    <ol>
+      <li>flea treatment</li>
+      <li>thunder</li>
+      <li>other cats</li>
+    </ol>
+  </div>
+
+  <form action="https://freecatphotoapp.com/submit-cat-photo">
+    <label><input type="radio" name="indoor-outdoor" checked> Indoor</label>
+    <label><input type="radio" name="indoor-outdoor"> Outdoor</label><br>
+    <label><input type="checkbox" name="personality" checked> Loving</label>
+    <label><input type="checkbox" name="personality"> Lazy</label>
+    <label><input type="checkbox" name="personality"> Energetic</label><br>
+    <input type="text" placeholder="cat photo URL" required>
+    <button type="submit">Submit</button>
+  </form>
+
+
+</main>
+
+
+
+
+
+alert("Hello! I am an alert box!!");
+
+
+​      
+
+
+
+​      
+
   }
 
   .penguin {
@@ -210,6 +248,7 @@ tags: [说明]
     position: absolute;
   }
 </style>
+
 <div class="penguin">
   <div class="penguin-bottom">
     <div class="right-hand"></div>
@@ -237,20 +276,10 @@ tags: [说明]
 
 
 
-
-
-
-
-
-
 <h3 >  函数 </h3>
 
 
 函数 ${f(x)=a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}}+\cdots$ 函数 $${f(x)=a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}}+\cdots \tag{1.1}$$
-
-
-
-
 
 
 
@@ -270,4 +299,6 @@ tags: [说明]
 
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/347459247&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
-😂
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Cnf8sKWAlBo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
