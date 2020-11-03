@@ -6,6 +6,18 @@ tags: [说明]
 
 
 
+<style>
+.red-text {
+​    color: red;
+}
+h2 {
+​    font-family: Lobster;
+}
+p {
+​    font-size: 16px;
+​    font-family: monospace;
+}
+</style>
 
 
 
@@ -14,7 +26,8 @@ tags: [说明]
 
 
 
-<h3 >  函数 </h3>
+
+<h3 class="red-text">  函数 </h3>
 
 $$
 f(x) = x + y^4
