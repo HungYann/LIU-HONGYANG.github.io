@@ -8,16 +8,18 @@ tags: [说明]
 
 
 
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"><style>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+<style>
 .red-text {
-​    color: red;
+ 		color: red;
 }
 h2 {
-​    font-family: Lobster;
+		font-family: Lobster;
 }
 p {
-​    font-size: 16px;
-​    font-family: monospace;
+		font-size: 16px;
+		font-family: monospace;
 }
 </style>
 
