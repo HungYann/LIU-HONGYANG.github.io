@@ -48,7 +48,14 @@ tags: [说明]
 
 
 
-alert("Hello! I am an alert box!!");
+```js script
+import './my-component.js';  
+​```
+
+# This is my component  
+<my-component></my-component>
+
+```
 
 
 ​      
