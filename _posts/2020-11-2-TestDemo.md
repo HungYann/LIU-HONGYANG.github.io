@@ -48,14 +48,38 @@ tags: [说明]
 
 
 
-```js script
-import './my-component.js';  
-​```
+<style>
+  :host {
+    --my-background-color: green;
+    --my-font-size: 12px;
+  }
 
-# This is my component  
-<my-component></my-component>
+  article p {
+    --my-font-size: 24px;
+    --my-background-color: cornflowerblue;
+    --p-padding-horizontal: 12px;
+  }
 
-```
+  p {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 4px var(--p-padding-horizontal, 6px);
+    background-color: var(--my-background-color);
+    font-size: var(--my-font-size);
+  }
+</style>
+
+
+<p>Hello</p>
+
+<article>
+  <p>World</p>
+</article>
+  
+
+
+
+
 
 
 ​      
