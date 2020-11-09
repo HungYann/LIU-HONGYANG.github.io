@@ -6,6 +6,22 @@ tags: [学习资源]
 
 
 
+### Java 机器学习：
+
+
+
+https://elki-project.github.io/
+
+
+
+https://onix-systems.com/blog/top-10-java-machine-learning-tools-and-libraries
+
+http://java-ml.sourceforge.net/content/getting-source-code
+
+
+
+
+
 ### 前端网站：
 
 https://www.freecodecamp.org/learn/
