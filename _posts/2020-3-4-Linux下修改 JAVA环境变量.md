@@ -6,6 +6,10 @@ tags: [Hadoop]
 
 
 
+```java
+java -verbose
+```
+
 
 
 ### Linux下修改 JAVA环境变量
