@@ -52,7 +52,7 @@ https://towardsdatascience.com/movie-recommender-system-52e4651f3ae7
 
 ##### Dimensionality Reduciton
 
-
+Movie recommender system:
 
 - Discover hidden correlations/topics
 - Remove redundant and nosiy features
