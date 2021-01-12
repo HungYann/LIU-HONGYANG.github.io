@@ -59,3 +59,9 @@ https://steemit.com/created/hive-180932
 ### Emoji:
 
 https://coolsymbol.com/emojis/emoji-for-copy-and-paste.html
+
+
+
+视频录制：
+
+https://doodle.com/en/
