@@ -6,6 +6,12 @@ tags: [学习资源]
 
 
 
+Git pages:
+
+
+
+http://cody1991.github.io/github/2015/04/04/github-pages-introduction.html
+
 
 
 ##### 廖雪峰：
