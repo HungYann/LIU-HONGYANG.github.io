@@ -1,0 +1,1057 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SQL面试50题</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c0f0f59f-fbb6-4c16-a23f-95bd62f02a95" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/met_william_morris_1878.jpg" style="object-position:center 0%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">😁</span></div><h1 class="page-title">SQL面试50题</h1></header><div class="page-body"><nav id="fe36c440-ff69-47f4-ad5d-cb4690681c97" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6bff5c13-8b3a-4be1-857b-a2b394fb6536">表结构</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#109a7033-874d-47c6-a3f0-cbc8b250a0a0">1.查询课程编号为“01”的课程比“02”的课程成绩高的所有学生的学号</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5c3ad9bd-fd62-4449-8680-333e0387dff2">2.查询平均成绩大于60分的学生的学号和平均成绩</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7a462b94-ce25-423a-8e7e-de56d5e20bc5">3. 查询所有学生的学号、姓名、选课数、总成绩</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9a05fdcf-f536-4eda-9798-53f283f9bd98">4. 查询姓“猴”的老师的个数</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9b4c2d06-e089-4501-87c6-f06c41dc57e1">5. 查询没学过“张三”老师课的学生的学号、姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8ed8e525-b9b9-4a70-9f3c-dfc6957d2d63">6. 查询学过“张三”老师所教的所有课的同学的学号、姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#016b0596-4608-4a88-afe7-91ce85e0ea86">7. 查询学过编号为“01”的课程并且也学过编号为“02”的课程的学生的学号、姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fa6aaba5-5d8f-49ce-94ce-90b30fb9196a">8.查询课程编号为“02”的总成绩</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8fa11c95-4d49-4cb8-b810-c9d9c2474afa">9.查询所有课程成绩小于60分的学生的学号、姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c1f1dfc3-677d-4157-9f0f-a1bbb4c4bf54">10. 查询没有学全所有课的学生的学号、姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#40be30b3-a2bf-4b53-881a-4f191626f887">11. 查询至少有一门课与学号为“01”的学生所学课程相同的学生的学号和姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8937e0d4-684d-4fca-95fc-2e92536698d2">12.查询和“01”号同学所学课程完全相同的其他同学的学号</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dc1262f3-cf8b-4da9-bf69-60a0b930bcc8">13. 查询没学过&quot;张三&quot;老师讲授的任一门课程的学生姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8b1beed2-36ec-4ea3-a59c-c60d51f8d93c">15. 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8c111eb1-5a1a-4f2c-a2f1-2a762f760a05">16. 检索&quot;01&quot;课程分数小于60，按分数降序排列的学生信息</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#292c13c5-84a0-49bf-bc02-66eef03feed6">17. 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5b64ef85-bd1e-4e91-b688-d29b64aed904">18. 查询各科成绩最高分、最低分和平均分：以如下形式显示：课程ID，课程name，最高分，最低分，平均分，及格率，中等率，优良率，优秀率</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3c5cb605-cf20-45e2-8e9f-b0fdb57c6869">19. 按各科成绩进行排序，并显示排名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4164b880-cc76-4b42-8abe-87e13cc3f01b">20. 查询学生的总成绩并进行排名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1c2033ba-1416-4a18-a4df-841773639963">21. 查询不同老师所教不同课程平均分从高到低显示</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f8f10b88-7bd7-4061-bef9-e5b54190cb65">22. 查询所有课程的成绩第2名到第3名的学生信息及该课程成绩</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#78860e9e-eb70-453a-9431-2309870e13d2">23.使用分段[100-85],[85-70],[70-60],[&lt;60]来统计各科成绩，分别统计各分数段人数：课程ID和课程名称</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#83dea5ea-cc9b-491d-816d-9042172a7dc7">24. 查询学生平均成绩及其名次</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#98aae7cd-96ca-4547-9a2f-987553a2fa68">25. 查询各科成绩前三名的记录（不考虑成绩并列情况）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#227ea7f7-b6ab-4ff1-a2a6-5dd6446aed96">26. 查询每门课程被选修的学生数</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1e054d74-db09-486f-9d55-a6e1e5969d79">27. 查询出只有两门课程的全部学生的学号和姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#29ea0fb2-3c97-4f0d-9fe5-ba5a2cc88836">28. 查询男生、女生人数</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4302349b-bc9f-46ab-9446-fb04b5d9325e">29. 查询名字中含有&quot;风&quot;字的学生信息</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a84cb9b9-5048-45de-b4b3-5dc7997b63a4">31. 查询1990年出生的学生名单</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#34abf883-0d6d-43cd-a65d-b27d790f401d">32. 查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5f6aeb8a-d0a8-417c-95d5-7e1b19df4461">33. 查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#bd80d643-35ff-41cd-b494-261c5ea68e26">34.查询课程名称为&quot;数学&quot;，且分数低于60的学生姓名和分数</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#53b4c06e-c004-4df9-a5fc-006e78c2e4a7">35. 查询所有学生的课程及分数情况</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a55aa18e-01d3-49bc-96d5-2caeeecb3361">36. 查询任何一门课程成绩在70分以上的姓名、课程名称和分数</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0136bf07-37fc-49f0-acd0-3d540fada1ae">37. 查询不及格的课程并按课程号从大到小排列</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9afb9908-6b82-48d0-9a98-ce7f036ca964">38. 查询课程编号为03且课程成绩在80分以上的学生的学号和姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#aed92d7f-3558-47b2-8615-71f1e1af2b00">39. 求每门课程的学生人数</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4a11b9f8-448d-45a5-852e-b39ad831db04">40. 查询选修“张三”老师所授课程的学生中成绩最高的学生姓名及其成绩</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e91cbc4d-7a61-4d1e-9c18-158a03c2b2bc">41. 查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1dce3c3c-5802-4d51-baa2-c3aba2b98d01">42. 查询每门功成绩最好的前两名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3fe72ee9-6fd9-478f-942d-d3152f3b3afc">43. 统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3e594753-5e91-48be-98f0-0beb0b174a0c">44. 检索至少选修两门课程的学生学号</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7bcc10c0-c162-4da7-b7c4-8289cc6e107a">45. 查询选修了全部课程的学生信息</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#980f7e87-381d-4f58-bd44-f105265d9f13">46. 查询各学生的年龄</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2dff5671-59d7-4dd1-a8d4-bb88bcce2444">47. 查询没学过“张三”老师讲授的任一门课程的学生姓名</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c9e90aec-65e5-4a09-b5da-8d212301c945">48. 查询下周过生日的学生</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f9eb0b15-d732-46d1-bdff-9f2cf9a7f5bc">49. 查询本月过生日的人</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f016cdeb-32a0-48dd-ba8f-a4fe2bcd66c2">50. 查询下月过生日的人</a></div></nav><p id="0d9a6ce7-ec7f-4e89-9bc6-ff9471a25b86" class="">
+</p><p id="77e8f26e-4c62-49b0-86ae-5e40b545315d" class="">
+</p><h1 id="6bff5c13-8b3a-4be1-857b-a2b394fb6536" class="">表结构</h1><figure id="0dbdb088-ae97-482d-8531-f38da98bd269" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled.png"/></a></figure><h3 id="109a7033-874d-47c6-a3f0-cbc8b250a0a0" class="">1.查询课程编号为“01”的课程比“02”的课程成绩高的所有学生的学号</h3><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="93cbb7d9-9d1b-4002-b293-c914ce2b25c0" class="code"><code><span class="token keyword">select</span> a<span class="token punctuation">.</span>s_id <span class="token string">"s_no"</span><span class="token punctuation">,</span> s_name <span class="token string">"s_name"</span><span class="token punctuation">,</span>a<span class="token punctuation">.</span>s_score <span class="token string">"01"</span><span class="token punctuation">,</span> b<span class="token punctuation">.</span>s_score <span class="token string">"02"</span> <span class="token keyword">from</span> 
+<span class="token punctuation">(</span>
+	<span class="token keyword">select</span> s_id<span class="token punctuation">,</span>c_id<span class="token punctuation">,</span>s_score <span class="token keyword">from</span> Score <span class="token keyword">where</span> c_id <span class="token operator">=</span> <span class="token string">'01'</span>
+<span class="token punctuation">)</span> <span class="token keyword">as</span> a
+<span class="token keyword">inner</span> <span class="token keyword">join</span>
+<span class="token punctuation">(</span>
+	<span class="token keyword">select</span> s_id<span class="token punctuation">,</span>c_id<span class="token punctuation">,</span>s_score <span class="token keyword">from</span> Score <span class="token keyword">where</span> c_id <span class="token operator">=</span> <span class="token string">'02'</span>
+<span class="token punctuation">)</span> <span class="token keyword">as</span> b <span class="token keyword">on</span> a<span class="token punctuation">.</span>s_id<span class="token operator">=</span>b<span class="token punctuation">.</span>s_id
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student <span class="token keyword">as</span> c <span class="token keyword">on</span> c<span class="token punctuation">.</span>s_id <span class="token operator">=</span> a<span class="token punctuation">.</span>s_id
+<span class="token keyword">where</span> a<span class="token punctuation">.</span>s_score <span class="token operator">></span> b<span class="token punctuation">.</span>s_score</code></pre><p id="7d585e52-e78e-437c-a0bc-e16e91077854" class="">
+</p><p id="930bf33c-f556-4ac5-9320-b597f1e36e49" class="">
+</p><figure id="9421beda-df91-4ed2-805f-cab803d6ce2d" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%201.png"><img style="width:336px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%201.png"/></a></figure><p id="bd1d192e-b500-44d3-8187-7214c48dcebb" class="">
+</p><p id="c9e35383-2fd4-4696-9203-459ffe481542" class="">
+</p><h3 id="5c3ad9bd-fd62-4449-8680-333e0387dff2" class="">2.查询平均成绩大于60分的学生的学号和平均成绩</h3><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="b58a19b2-eba4-4693-a661-db4744afa655" class="code"><code><span class="token keyword">select</span> s_id<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span> <span class="token keyword">from</span> score <span class="token keyword">group</span> <span class="token keyword">by</span> s_id <span class="token keyword">having</span> <span class="token function">avg</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span></code></pre><p id="adbf9d66-ef31-4a48-8210-c5fdffb5d126" class="">
+</p><figure id="eaa0a3d1-995c-4754-873b-95cab5e93084" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%202.png"><img style="width:274px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%202.png"/></a></figure><h3 id="7a462b94-ce25-423a-8e7e-de56d5e20bc5" class="">3. 查询所有学生的学号、姓名、选课数、总成绩</h3><p id="e7791302-ffa5-4b8b-9e09-b20a5370819f" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="856f820b-276a-4365-8520-27e8be459ad8" class="code"><code><span class="token keyword">select</span> a<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>a<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>c_id<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">when</span> b<span class="token punctuation">.</span>s_score <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token keyword">then</span> <span class="token number">0</span> <span class="token keyword">else</span> b<span class="token punctuation">.</span>s_score <span class="token keyword">END</span><span class="token punctuation">)</span>  
+<span class="token keyword">from</span> Student <span class="token keyword">as</span> a <span class="token keyword">left</span> <span class="token keyword">join</span> Score <span class="token keyword">as</span> b <span class="token keyword">on</span> a<span class="token punctuation">.</span>s_id <span class="token operator">=</span> b<span class="token punctuation">.</span>s_id
+<span class="token keyword">group</span> <span class="token keyword">by</span> a<span class="token punctuation">.</span>s_id</code></pre><p id="8303b441-f6e9-4fbe-ae6d-89554f809801" class="">
+</p><p id="e1762a3d-f89f-4998-bb83-f38f004cee5b" class="">
+</p><figure id="f4bf25ed-ec41-4197-b943-a24ca3a05aab" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%203.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%203.png"/></a></figure><p id="78181af9-1f61-46c2-b34c-2a3330de755e" class="">
+</p><h3 id="9a05fdcf-f536-4eda-9798-53f283f9bd98" class="">4. 查询姓“猴”的老师的个数</h3><p id="e9005345-a5f8-45e1-823f-cb3eb36bf742" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="d9ea9d72-91a9-4ed0-b653-12185342f23c" class="code"><code><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> t_id<span class="token punctuation">)</span> <span class="token keyword">from</span> Teacher <span class="token keyword">where</span> t_name <span class="token operator">like</span> <span class="token string">"侯%"</span></code></pre><p id="396f19cb-d43b-44e9-a8f1-b3c016adc55f" class="">
+</p><figure id="0edebb4d-e5b4-45d1-8e3e-30509e845e3e" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%204.png"><img style="width:192px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%204.png"/></a></figure><p id="f9d53e09-3c36-4976-85b2-3865a97e30e9" class="">
+</p><h3 id="9b4c2d06-e089-4501-87c6-f06c41dc57e1" class="">5. 查询没学过“张三”老师课的学生的学号、姓名</h3><p id="cdc457d4-ef6b-4c5d-af12-cbe7904e2151" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="54048cd8-4f19-4af3-8627-4006e911de79" class="code"><code>method <span class="token number">1</span>:
+<span class="token keyword">select</span> s_id<span class="token punctuation">,</span>s_name <span class="token keyword">from</span> Student <span class="token keyword">where</span> s_id <span class="token operator">not</span> <span class="token operator">in</span><span class="token punctuation">(</span>
+	<span class="token keyword">select</span> s_id <span class="token keyword">from</span> Score 
+		<span class="token keyword">where</span> c_id <span class="token operator">=</span> <span class="token punctuation">(</span>
+			<span class="token keyword">select</span> c_id <span class="token keyword">from</span> Course <span class="token keyword">where</span> t_id <span class="token operator">=</span> <span class="token punctuation">(</span>
+				<span class="token keyword">select</span> t_id <span class="token keyword">from</span> Teacher <span class="token keyword">where</span> t_name <span class="token operator">=</span> <span class="token string">'张三'</span>
+			<span class="token punctuation">)</span>
+	<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+
+method <span class="token number">2</span>:
+<span class="token keyword">select</span> s_id<span class="token punctuation">,</span>s_name <span class="token keyword">from</span> Student <span class="token keyword">where</span> s_id <span class="token operator">not</span> <span class="token operator">in</span><span class="token punctuation">(</span>
+	<span class="token keyword">select</span> s_id <span class="token keyword">from</span> Score <span class="token keyword">as</span> a <span class="token keyword">inner</span> <span class="token keyword">join</span> Course <span class="token keyword">as</span> b
+	<span class="token keyword">on</span> a<span class="token punctuation">.</span>c_id <span class="token operator">=</span> b<span class="token punctuation">.</span>c_id 
+		<span class="token keyword">inner</span> <span class="token keyword">join</span> Teacher <span class="token keyword">as</span> c
+		<span class="token keyword">on</span> b<span class="token punctuation">.</span>t_id <span class="token operator">=</span> c<span class="token punctuation">.</span>t_id  <span class="token keyword">where</span> t_name <span class="token operator">=</span> <span class="token string">"张三"</span>
+<span class="token punctuation">)</span></code></pre><p id="2d9f673f-f6e3-485b-b217-7d318230d1f4" class="">
+</p><figure id="0b473829-4e10-418f-a856-f94c0136c3fc" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%205.png"><img style="width:212px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%205.png"/></a></figure><p id="8678cbbb-1168-4a70-b1fa-fdbfcb294c51" class="">
+</p><h3 id="8ed8e525-b9b9-4a70-9f3c-dfc6957d2d63" class="">6. 查询学过“张三”老师所教的所有课的同学的学号、姓名</h3><p id="02f6725c-1fc7-435d-ab81-1cc1047d9e07" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="6a1ce663-53f6-44f1-bff3-6c6dfeda34d5" class="code"><code><span class="token keyword">select</span> s_id<span class="token punctuation">,</span> s_name <span class="token keyword">from</span> Student <span class="token keyword">where</span> s_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+	<span class="token keyword">select</span> s_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> c_id <span class="token operator">=</span> <span class="token punctuation">(</span>
+		<span class="token keyword">select</span> c_id <span class="token keyword">from</span> Course <span class="token keyword">where</span> t_id <span class="token operator">=</span> <span class="token punctuation">(</span>
+			<span class="token keyword">select</span> t_id <span class="token keyword">from</span> Teacher <span class="token keyword">where</span> t_name <span class="token operator">=</span> <span class="token string">"张三"</span>
+		<span class="token punctuation">)</span>
+	<span class="token punctuation">)</span>
+<span class="token punctuation">)</span></code></pre><p id="10f7a422-9481-4d55-9fa4-96e7329f5737" class="">
+</p><figure id="73fa5f36-6bc7-4548-a0d8-0a4e243b5739" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%206.png"><img style="width:192px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%206.png"/></a></figure><p id="6ae2efe4-0fbf-47ab-86b6-442d03d6538a" class="">
+</p><p id="f9ee4bf1-b942-4f19-9963-b685b9a9aefd" class="">
+</p><h3 id="016b0596-4608-4a88-afe7-91ce85e0ea86" class="">7. 查询学过编号为“01”的课程并且也学过编号为“02”的课程的学生的学号、姓名</h3><p id="54578564-3e13-46e4-9cd1-8cfdfb774415" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="fe0a23b8-4259-4129-90b9-3cef489e3662" class="code"><code><span class="token keyword">select</span> s_id<span class="token punctuation">,</span>s_name <span class="token keyword">from</span> Student <span class="token keyword">where</span> s_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+<span class="token keyword">select</span> a<span class="token punctuation">.</span>s_id <span class="token keyword">from</span>  <span class="token punctuation">(</span>
+	<span class="token punctuation">(</span><span class="token keyword">select</span> s_id<span class="token punctuation">,</span>c_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> c_id <span class="token operator">=</span> <span class="token string">"01"</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> a 
+    <span class="token keyword">inner</span> <span class="token keyword">join</span> 
+    <span class="token punctuation">(</span><span class="token keyword">select</span> s_id<span class="token punctuation">,</span>c_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> c_id <span class="token operator">=</span> <span class="token string">"02"</span> <span class="token punctuation">)</span> <span class="token keyword">as</span> b
+	<span class="token keyword">on</span> a<span class="token punctuation">.</span>s_id <span class="token operator">=</span> b<span class="token punctuation">.</span>s_id 
+<span class="token punctuation">)</span> <span class="token keyword">where</span> a<span class="token punctuation">.</span>c_id <span class="token operator">=</span> <span class="token string">"01"</span> <span class="token operator">and</span> b<span class="token punctuation">.</span>c_id <span class="token operator">=</span> <span class="token string">"02"</span> <span class="token punctuation">)</span></code></pre><p id="570d0421-0085-4211-9f2e-9ba2696ec801" class="">
+</p><figure id="947dcd55-1ef0-46c6-b494-05cfe99a1f4e" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%207.png"><img style="width:192px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%207.png"/></a></figure><p id="84c72884-5130-464c-ab88-c36cf38875e3" class="">
+</p><p id="63d886f3-c5d5-494b-ba24-dee18523a923" class="">
+</p><h3 id="fa6aaba5-5d8f-49ce-94ce-90b30fb9196a" class="">8.查询课程编号为“02”的总成绩</h3><p id="9cf64dd4-35b7-45c2-a8cb-e02a3afba626" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="bcba361b-0d3f-41e6-8976-f494b002a9e9" class="code"><code><span class="token keyword">select</span> <span class="token function">sum</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> s_id<span class="token punctuation">)</span> <span class="token keyword">from</span> Score <span class="token keyword">where</span> c_id <span class="token operator">=</span> <span class="token string">"02"</span></code></pre><p id="1d47399e-1bda-499a-8097-d36274706ccf" class="">
+</p><p id="905aea61-7d1f-40ba-a7e9-cac109ea8227" class="">
+</p><figure id="394cd184-54ba-4801-8fd5-6f1a8aa6bd1e" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%208.png"><img style="width:384px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%208.png"/></a></figure><p id="0cdfea27-de5b-4e7d-903d-597d4eec9915" class="">
+</p><p id="58ab2b01-0b57-4a0c-9744-789540e84441" class="">
+</p><p id="d017a10a-ae2c-414d-bab3-6e6a7e8ecb4f" class="">
+</p><h3 id="8fa11c95-4d49-4cb8-b810-c9d9c2474afa" class="">9.查询所有课程成绩小于60分的学生的学号、姓名</h3><p id="7f6d0db5-de99-4322-b13d-f0e9c6c8cf36" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="c6763307-6d19-4857-bd8e-17af4652d77f" class="code"><code><span class="token keyword">select</span> s_id<span class="token punctuation">,</span>s_name <span class="token keyword">from</span> Student <span class="token keyword">where</span> s_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> a<span class="token punctuation">.</span>s_id  <span class="token keyword">from</span> 
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> s_id<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span>c_id<span class="token punctuation">)</span> <span class="token keyword">as</span> cnt <span class="token keyword">from</span> Score <span class="token keyword">where</span> s_score<span class="token operator">&lt;</span><span class="token number">60</span> <span class="token keyword">group</span> <span class="token keyword">by</span> s_id<span class="token punctuation">)</span> <span class="token keyword">as</span> a
+<span class="token keyword">inner</span> <span class="token keyword">join</span>
+<span class="token punctuation">(</span><span class="token keyword">select</span> s_id<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>c_id<span class="token punctuation">)</span> <span class="token keyword">as</span> cnt <span class="token keyword">from</span> Score <span class="token keyword">group</span> <span class="token keyword">by</span> s_id<span class="token punctuation">)</span> <span class="token keyword">as</span> b
+<span class="token keyword">on</span> a<span class="token punctuation">.</span>s_id <span class="token operator">=</span> b<span class="token punctuation">.</span>s_id  <span class="token keyword">where</span> a<span class="token punctuation">.</span>cnt <span class="token operator">=</span> b<span class="token punctuation">.</span>cnt
+<span class="token punctuation">)</span></code></pre><p id="f8513cb9-634d-4e50-91ac-51860ceabef4" class="">
+</p><p id="ce4fb562-2994-47d7-80e8-a5d0b804e0f7" class="">
+</p><figure id="c7e7af55-eb8b-485e-b54a-d50b7de6ff8e" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%209.png"><img style="width:192px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%209.png"/></a></figure><p id="288ef2f8-85f1-493f-9899-c72afa39ca12" class="">
+</p><h3 id="c1f1dfc3-677d-4157-9f0f-a1bbb4c4bf54" class="">10. 查询没有学全所有课的学生的学号、姓名</h3><p id="aca1c102-4c33-4b99-bf96-592a87bcbe4f" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="8c91dfcf-e644-49b0-99f6-5dcea176b6d5" class="code"><code><span class="token keyword">select</span> st<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> Student <span class="token keyword">as</span> st <span class="token keyword">left</span> <span class="token keyword">join</span> Score 
+<span class="token keyword">as</span> sc <span class="token keyword">on</span> st<span class="token punctuation">.</span>s_id <span class="token operator">=</span> sc<span class="token punctuation">.</span>s_id <span class="token keyword">group</span> <span class="token keyword">by</span> st<span class="token punctuation">.</span>s_id 
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> sc<span class="token punctuation">.</span>c_id<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span>c_id<span class="token punctuation">)</span> <span class="token keyword">from</span> Course<span class="token punctuation">)</span></code></pre><p id="c7ab29fc-71d3-4df5-961b-89220a14a136" class="">
+</p><figure id="c2fc1f7b-5bde-4085-a6f1-8772adc385c5" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2010.png"><img style="width:240px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2010.png"/></a></figure><p id="a384ffb2-27b6-4dc6-a652-ef365491e1a9" class="">
+</p><h3 id="40be30b3-a2bf-4b53-881a-4f191626f887" class="">11. 查询至少有一门课与学号为“01”的学生所学课程相同的学生的学号和姓名</h3><p id="4ab0d829-8507-4efb-a0af-1f71327e52b0" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="c10bf703-e4b4-424c-b91e-219bfa5d7ef5" class="code"><code><span class="token keyword">select</span> s_id<span class="token punctuation">,</span>s_name <span class="token keyword">from</span> Student <span class="token keyword">where</span> s_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+	<span class="token keyword">select</span> <span class="token keyword">distinct</span><span class="token punctuation">(</span>s_id<span class="token punctuation">)</span> <span class="token keyword">from</span> Score <span class="token keyword">where</span> c_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+		<span class="token keyword">select</span> c_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> s_id <span class="token operator">=</span> <span class="token string">"01"</span>
+	<span class="token punctuation">)</span> <span class="token operator">and</span> s_id <span class="token operator">!=</span> <span class="token string">"01"</span>
+<span class="token punctuation">)</span></code></pre><p id="2e30fa4b-cf45-46b7-8189-5cddba4f8f60" class="">
+</p><p id="e0aa8c92-148f-4c8f-9fb0-29028c2c94c0" class="">
+</p><figure id="4fb5461a-4e50-4b36-869c-928c9446b4d7" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2011.png"><img style="width:144px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2011.png"/></a></figure><p id="8208214f-d7be-4fc2-af81-3d5be3be140b" class="">
+</p><p id="dd8f7a8b-1aac-4cb9-9043-bf8b0dcd041d" class="">
+</p><h3 id="8937e0d4-684d-4fca-95fc-2e92536698d2" class="">12.查询和“01”号同学所学课程完全相同的其他同学的学号</h3><p id="c043f29c-3709-4cee-9204-f3ea46c4e541" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="cfcfa387-d28c-46c2-b008-2aa4d98748a6" class="code"><code>method <span class="token number">1</span>:
+
+<span class="token keyword">select</span> s_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> s_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+<span class="token keyword">select</span> s_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> c_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+	<span class="token keyword">select</span> c_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> s_id <span class="token operator">=</span> <span class="token string">"01"</span>
+<span class="token punctuation">)</span> <span class="token operator">and</span> s_id <span class="token operator">!=</span> <span class="token string">"01"</span> <span class="token keyword">group</span> <span class="token keyword">by</span> s_id <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> c_id<span class="token punctuation">)</span> 
+<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> c_id<span class="token punctuation">)</span> <span class="token keyword">from</span> Score <span class="token keyword">where</span> s_id <span class="token operator">=</span> <span class="token string">"01"</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">group</span> <span class="token keyword">by</span> s_id <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> c_id<span class="token punctuation">)</span> 
+<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> c_id<span class="token punctuation">)</span> <span class="token keyword">from</span> Score <span class="token keyword">where</span> s_id <span class="token operator">=</span> <span class="token string">"01"</span><span class="token punctuation">)</span>
+
+method <span class="token number">2</span>:
+
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> Student <span class="token keyword">where</span> s_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+	<span class="token keyword">select</span> s_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> s_id<span class="token operator">!=</span><span class="token string">"01"</span> <span class="token keyword">group</span> <span class="token keyword">by</span> s_id <span class="token keyword">having</span> 
+	<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> c_id<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> c_id<span class="token punctuation">)</span> <span class="token keyword">from</span> Score <span class="token keyword">where</span> s_id <span class="token operator">=</span> <span class="token string">"01"</span><span class="token punctuation">)</span>
+
+	<span class="token operator">and</span> s_id <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span>
+	
+		<span class="token keyword">select</span> s_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> c_id <span class="token operator">not</span> <span class="token operator">in</span><span class="token punctuation">(</span>
+			<span class="token keyword">select</span> c_id <span class="token keyword">from</span> Score <span class="token keyword">where</span> s_id <span class="token operator">=</span> <span class="token string">"01"</span>
+		<span class="token punctuation">)</span>
+
+	<span class="token punctuation">)</span>
+<span class="token punctuation">)</span></code></pre><p id="d6ac165a-1cef-43e9-80e4-b6295e9eb102" class="">
+</p><p id="33bceaf3-ddfe-4fe7-8ee9-3959f11c62cb" class="">
+</p><figure id="cc5e7b73-9e65-47f1-a5fd-9a2e863b5598" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2012.png"><img style="width:120px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2012.png"/></a></figure><p id="eacef91a-2b91-4992-aaec-13f1581358e0" class="">
+</p><p id="2b11e080-41a4-4e99-9f97-327e3b39b379" class="">
+</p><h3 id="dc1262f3-cf8b-4da9-bf69-60a0b930bcc8" class="">13. 查询没学过&quot;张三&quot;老师讲授的任一门课程的学生姓名</h3><p id="ca8bf95a-cd37-44d6-99b4-80c434edcb5c" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="bd31eb11-7053-4adb-a8f4-fb2726fee1d9" class="code"><code><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> Student <span class="token keyword">where</span> s_id <span class="token operator">not</span> <span class="token operator">in</span><span class="token punctuation">(</span>
+	<span class="token keyword">select</span> s_id <span class="token keyword">from</span> Score <span class="token keyword">as</span> sc 
+	<span class="token keyword">inner</span> <span class="token keyword">join</span> Course <span class="token keyword">as</span> co <span class="token keyword">on</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> co<span class="token punctuation">.</span>c_id
+	<span class="token keyword">inner</span> <span class="token keyword">join</span> Teacher <span class="token keyword">as</span> te <span class="token keyword">on</span> co<span class="token punctuation">.</span>t_id <span class="token operator">=</span> te<span class="token punctuation">.</span>t_id <span class="token keyword">where</span> t_name <span class="token operator">=</span> <span class="token string">"张三"</span>
+<span class="token punctuation">)</span></code></pre><p id="96590906-0109-4d43-9197-b16f03f87214" class="">
+</p><figure id="12d3c7b9-4089-4f7b-a191-92abb3a219da" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2013.png"><img style="width:336px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2013.png"/></a></figure><p id="b37e785b-ed4a-41ba-a30b-e09cb177700c" class="">
+</p><p id="aef155e9-78bf-413f-b0d9-773ced8c4da9" class="">
+</p><h3 id="8b1beed2-36ec-4ea3-a59c-c60d51f8d93c" class="">15. 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩</h3><p id="bca6ecdc-3929-4954-b15e-b1869a75dae3" class="">
+</p><p id="e7b77f07-079c-46f4-ab9b-7fa2ad99fac6" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="044631ae-d014-4ce0-8448-7ea8c42b3bd2" class="code"><code><span class="token keyword">select</span> st<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span> <span class="token function">avg</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span>s_score<span class="token punctuation">)</span> <span class="token keyword">from</span> Student <span class="token keyword">as</span> st <span class="token keyword">inner</span> <span class="token keyword">join</span> Score <span class="token keyword">as</span> sc <span class="token keyword">on</span> st<span class="token punctuation">.</span>s_id <span class="token operator">=</span> sc<span class="token punctuation">.</span>s_id
+<span class="token keyword">where</span> st<span class="token punctuation">.</span>s_id <span class="token operator">in</span><span class="token punctuation">(</span>
+	<span class="token keyword">select</span> s_id <span class="token keyword">from</span> score <span class="token keyword">where</span> s_score<span class="token operator">&lt;</span><span class="token number">60</span> <span class="token keyword">group</span> <span class="token keyword">by</span> s_id <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> c_id<span class="token punctuation">)</span> <span class="token operator">>=</span><span class="token number">2</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> st<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name</code></pre><p id="8008603e-408a-4310-9325-7c11c01a23fe" class="">
+</p><p id="f050d3ff-b0da-4ddc-8795-7708d75ec05f" class="">
+</p><figure id="3bfc8cc5-bdb5-4211-81d3-68a42b32802b" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2014.png"><img style="width:288px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2014.png"/></a></figure><p id="b6d10583-786a-4e5c-a13e-18e573afcd1e" class="">
+</p><p id="23ea2f21-3a30-4a90-a522-e9fe8ec5a47a" class="">
+</p><h3 id="8c111eb1-5a1a-4f2c-a2f1-2a762f760a05" class="">16. 检索&quot;01&quot;课程分数小于60，按分数降序排列的学生信息</h3><p id="3ce591b7-4425-46ef-81c1-0d4394cadb7b" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="4f2632dd-9972-4151-a2fe-92c16cac87c9" class="code"><code><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> Student <span class="token keyword">as</span> st <span class="token keyword">inner</span> <span class="token keyword">join</span> Score sc 
+<span class="token keyword">on</span> st<span class="token punctuation">.</span>s_id <span class="token operator">=</span> sc<span class="token punctuation">.</span>s_id <span class="token keyword">where</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> <span class="token string">"01"</span>
+<span class="token operator">and</span> sc<span class="token punctuation">.</span>s_score <span class="token operator">&lt;</span> <span class="token number">60</span> <span class="token keyword">order</span> <span class="token keyword">by</span> sc<span class="token punctuation">.</span>s_score <span class="token keyword">desc</span></code></pre><p id="c489c7b6-0be0-4f40-a1c5-9e58a1012780" class="">
+</p><p id="0308f32f-2453-48f2-935c-85271b220197" class="">
+</p><figure id="b45a3fc5-d827-46cc-b942-590a38c2dbfa" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2015.png"><img style="width:384px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2015.png"/></a></figure><p id="90c51289-805b-4d75-b519-d4fbafc81b04" class="">
+</p><p id="9f4e501f-5ad9-40d6-9d07-b4042ea39354" class="">
+</p><p id="13dd24ae-1e83-4d3a-93b1-e38a1eb3c054" class="">
+</p><h3 id="292c13c5-84a0-49bf-bc02-66eef03feed6" class="">17. 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩</h3><p id="e0234bfd-e14a-44d5-b3f1-b41c12802a90" class="">
+</p><p id="6d24e650-09af-47de-b03f-e59e5bdd07cc" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="86de71d3-8b86-4b42-b48a-454a8649e662" class="code"><code>method <span class="token number">1</span>:
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> s_id<span class="token punctuation">)</span> 
+<span class="token keyword">as</span> average <span class="token keyword">from</span> Score <span class="token keyword">order</span> <span class="token keyword">by</span> average <span class="token keyword">desc</span>
+
+method <span class="token number">2</span>:
+
+<span class="token keyword">select</span> s_id <span class="token string">"学号"</span><span class="token punctuation">,</span>
+<span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> c_id<span class="token operator">=</span><span class="token string">'01'</span> <span class="token keyword">then</span> s_score <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"语文"</span><span class="token punctuation">,</span>
+<span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> c_id<span class="token operator">=</span><span class="token string">'02'</span> <span class="token keyword">then</span> s_score <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"数学"</span><span class="token punctuation">,</span>
+<span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> c_id<span class="token operator">=</span><span class="token string">'03'</span> <span class="token keyword">then</span> s_score <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"英语"</span><span class="token punctuation">,</span>
+<span class="token function">avg</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span> <span class="token string">"平均成绩"</span>
+<span class="token keyword">from</span> Score <span class="token keyword">group</span> <span class="token keyword">by</span> s_id <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token string">"平均成绩"</span> <span class="token keyword">desc</span></code></pre><p id="c5bccac7-5707-4e29-b88e-f4eb5fda83f3" class="">
+</p><p id="c14f1ef9-72c4-4482-9725-5a0a7e1ef3d5" class="">
+</p><figure id="2e5199f6-0d6c-4dd7-a36b-816e8f539d7d" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2016.png"><img style="width:144px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2016.png"/></a></figure><p id="5ffa9e38-3395-474c-8b28-b3a45277c635" class="">
+</p><p id="53694d56-b9ff-412a-a5c6-577d4ddeace1" class="">
+</p><figure id="54ca7e77-048c-403f-b49e-f5a741681992" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2017.png"><img style="width:240px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2017.png"/></a></figure><p id="f48a39e4-5d64-4a4a-b8c2-bbfd1f621f08" class="">
+</p><p id="bb300176-838e-4e11-a30f-02a168f727fc" class="">
+</p><p id="371768e9-e00f-450f-89af-22de02090c24" class="">
+</p><h3 id="5b64ef85-bd1e-4e91-b688-d29b64aed904" class="">18. 查询各科成绩最高分、最低分和平均分：以如下形式显示：课程ID，课程name，最高分，最低分，平均分，及格率，中等率，优良率，优秀率</h3><p id="c6536d7f-ccc0-4a8a-8ace-0634ca963c6e" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="f0751d69-2941-4c67-911b-330b7372ba33" class="code"><code><span class="token keyword">SELECT</span> a<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span>a<span class="token punctuation">.</span>c_name<span class="token punctuation">,</span><span class="token function">max</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>s_score<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>s_score<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">avg</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>s_score<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> b<span class="token punctuation">.</span>s_score <span class="token operator">>=</span> <span class="token number">60</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>s_id<span class="token punctuation">)</span> <span class="token string">"及格"</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> b<span class="token punctuation">.</span>s_score <span class="token operator">>=</span> <span class="token number">70</span> <span class="token operator">and</span> b<span class="token punctuation">.</span>s_score <span class="token operator">&lt;=</span><span class="token number">80</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>s_id<span class="token punctuation">)</span> <span class="token string">"中等"</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> b<span class="token punctuation">.</span>s_score <span class="token operator">>=</span> <span class="token number">80</span> <span class="token operator">and</span> b<span class="token punctuation">.</span>s_score <span class="token operator">&lt;=</span><span class="token number">90</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>s_id<span class="token punctuation">)</span> <span class="token string">"优良"</span><span class="token punctuation">,</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> b<span class="token punctuation">.</span>s_score <span class="token operator">>=</span> <span class="token number">90</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>s_id<span class="token punctuation">)</span> <span class="token string">"优秀"</span>
+<span class="token keyword">from</span> 
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> Course <span class="token punctuation">)</span> <span class="token keyword">as</span> a <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> 
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> Score<span class="token punctuation">)</span> <span class="token keyword">as</span> b <span class="token keyword">on</span> a<span class="token punctuation">.</span>c_id <span class="token operator">=</span> b<span class="token punctuation">.</span>c_id <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> a<span class="token punctuation">.</span>c_id</code></pre><p id="85fecd46-b2ae-4409-8984-aa4680886a97" class="">
+</p><p id="da977893-4143-4711-97f1-4319a67f3351" class="">
+</p><figure id="b0bc5d2b-5001-421c-ac4c-e219211c4902" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2018.png"><img style="width:384px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2018.png"/></a></figure><p id="acc83449-945c-4299-9803-48590e51a7c4" class="">
+</p><p id="54b743e0-97a2-4d29-b056-5310ccb77652" class="">
+</p><p id="5159f7e4-b4ee-483a-9596-106dffc7ce00" class="">
+</p><h3 id="3c5cb605-cf20-45e2-8e9f-b0fdb57c6869" class="">19. 按各科成绩进行排序，并显示排名</h3><p id="9e5eb8d5-a940-4e37-925e-4c2c04ee85ed" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="78bd506d-02bf-4493-8415-e646392b36aa" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">by</span> c_id
+ <span class="token keyword">order</span> <span class="token keyword">by</span> s_score <span class="token punctuation">)</span> <span class="token keyword">as</span> ranking <span class="token keyword">from</span> Score</code></pre><p id="55f0d90b-494e-4f8c-a902-5396ab960f23" class="">
+</p><figure id="bc0af5ed-867a-45be-8780-2e1bd8b2e1a9" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2019.png"><img style="width:192px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2019.png"/></a></figure><p id="2509758b-0dea-49f8-a85e-5cc9a6cab040" class="">
+</p><p id="fac42da6-1f72-4675-b034-2650be566461" class="">
+</p><h3 id="4164b880-cc76-4b42-8abe-87e13cc3f01b" class="">20. 查询学生的总成绩并进行排名</h3><p id="19e5ebc0-dd9d-408b-b3a2-782e57e1f452" class="">
+</p><p id="d4a95cff-96b9-45c4-be28-9260e64ab70e" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="74584242-1573-4dae-beed-957162292c03" class="code"><code><span class="token keyword">SELECT</span> s_id<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span> <span class="token keyword">as</span> total 
+<span class="token keyword">from</span> Score <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> s_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> total <span class="token keyword">desc</span></code></pre><p id="ef22372d-8a46-475e-b83b-b1a9756c7b04" class="">
+</p><p id="038d0ce0-38d8-4f15-8b8d-0c9e02fbb920" class="">
+</p><figure id="5f7473c6-7769-476f-8762-b96936da1f7b" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2020.png"><img style="width:144px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2020.png"/></a></figure><p id="440ac8ce-6dfe-478c-ac7e-bf0d04f9f2f5" class="">
+</p><p id="78316e46-bc81-4176-802e-62dce7789639" class="">
+</p><p id="467afd6a-fa69-43df-a05e-c34c61c9083f" class="">
+</p><h3 id="1c2033ba-1416-4a18-a4df-841773639963" class="">21. 查询不同老师所教不同课程平均分从高到低显示</h3><p id="28d2027a-2fc0-4f67-9562-93dadc884890" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="836eb63f-09c2-4df1-bfab-75d4ab79d225" class="code"><code><span class="token keyword">select</span> b<span class="token punctuation">.</span>t_id<span class="token punctuation">,</span>b<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>s_score<span class="token punctuation">)</span> <span class="token keyword">from</span> Score <span class="token keyword">as</span> a
+<span class="token keyword">inner</span> <span class="token keyword">JOIN</span> Course <span class="token keyword">as</span> b <span class="token keyword">on</span> a<span class="token punctuation">.</span>c_id <span class="token operator">=</span> b<span class="token punctuation">.</span>c_id 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> b<span class="token punctuation">.</span>t_id<span class="token punctuation">,</span>b<span class="token punctuation">.</span>c_id <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token string">"平均分"</span> <span class="token keyword">DESC</span></code></pre><p id="6cfe39a1-b24e-49dd-83aa-80800556da56" class="">
+</p><p id="b7e295de-9593-445e-bd74-a5324053316f" class="">
+</p><figure id="f4c5761d-3d18-4b9b-8311-675ad4641d02" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2021.png"><img style="width:336px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2021.png"/></a></figure><p id="47c3d913-8697-4a3f-aa9f-7ba71465c4dd" class="">
+</p><p id="0f166671-4b93-42a8-a0d5-c69e8ed57b00" class="">
+</p><h3 id="f8f10b88-7bd7-4061-bef9-e5b54190cb65" class="">22. 查询所有课程的成绩第2名到第3名的学生信息及该课程成绩</h3><p id="f1b3cf98-038f-47bc-95f3-f3fb51fc9065" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="be43d2a5-c70e-4b6a-948a-40149cfa6292" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> sc<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>sc<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span>sc<span class="token punctuation">.</span>s_score<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_birth<span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">Partition</span> <span class="token keyword">by</span> c_id <span class="token keyword">order</span> <span class="token keyword">by</span> s_score <span class="token keyword">desc</span><span class="token punctuation">)</span> m <span class="token keyword">from</span> Score <span class="token keyword">as</span> sc <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span>
+Student <span class="token keyword">as</span> st <span class="token keyword">on</span> st<span class="token punctuation">.</span>s_id <span class="token operator">=</span> sc<span class="token punctuation">.</span>s_id <span class="token punctuation">)</span> a <span class="token keyword">where</span> m <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span></code></pre><p id="4eff3e6f-88af-4245-99a7-76cdc0176c67" class="">
+</p><p id="4593bb86-b1fb-4877-a006-3cf2eca27a6c" class="">
+</p><figure id="2c640e31-4209-496a-81a0-daf75a4db9cc" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2022.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2022.png"/></a></figure><p id="8b58a8be-bf28-4e98-8a00-d51fa5039ab4" class="">
+</p><h3 id="78860e9e-eb70-453a-9431-2309870e13d2" class="">23.使用分段[100-85],[85-70],[70-60],[&lt;60]来统计各科成绩，分别统计各分数段人数：课程ID和课程名称</h3><p id="4fabdfc3-fac1-4519-9b91-ceba88456cab" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="70618588-3582-421b-9597-b7b80286d46a" class="code"><code><span class="token keyword">SELECT</span> sc<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span>co<span class="token punctuation">.</span>c_name<span class="token punctuation">,</span> 
+
+<span class="token function">avg</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">>=</span><span class="token number">85</span> <span class="token operator">and</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">&lt;=</span><span class="token number">100</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"85-100"</span><span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">>=</span><span class="token number">85</span> <span class="token operator">and</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">&lt;=</span><span class="token number">100</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"85-100个数"</span><span class="token punctuation">,</span>
+
+<span class="token function">avg</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">>=</span><span class="token number">70</span> <span class="token operator">and</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">&lt;=</span><span class="token number">85</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"70-85"</span><span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">>=</span><span class="token number">70</span> <span class="token operator">and</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">&lt;=</span><span class="token number">85</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"70-85个数"</span><span class="token punctuation">,</span>
+
+
+<span class="token function">avg</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">>=</span><span class="token number">60</span> <span class="token operator">and</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">&lt;=</span><span class="token number">70</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"60-70"</span><span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">>=</span><span class="token number">60</span> <span class="token operator">and</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">&lt;</span><span class="token number">70</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"60-70个数"</span><span class="token punctuation">,</span>
+
+<span class="token function">avg</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">&lt;</span><span class="token number">60</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token string">"60以下"</span><span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> sc<span class="token punctuation">.</span>s_score<span class="token operator">&lt;</span><span class="token number">60</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token string">"60以下个数"</span>
+
+<span class="token keyword">from</span> Score sc 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course co 
+<span class="token keyword">on</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> co<span class="token punctuation">.</span>c_id <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> sc<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span> co<span class="token punctuation">.</span>c_name</code></pre><p id="1b8346bb-7918-4d13-aeb0-102267f13446" class="">
+</p><p id="ccb58ad0-a865-49d5-9425-ce112d7338b5" class="">
+</p><figure id="da586487-0e50-401c-9fc0-27a71291f19c" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2023.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2023.png"/></a></figure><p id="dca5e878-05ee-423d-87c7-c03aae159d53" class="">
+</p><p id="8bf1983c-7783-403e-8d6d-f957b36c7597" class="">
+</p><h3 id="83dea5ea-cc9b-491d-816d-9042172a7dc7" class="">24. 查询学生平均成绩及其名次</h3><p id="4df2de1d-d079-4650-aa06-06bf4ccfb636" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="df487818-5b12-44a1-85d6-6c9284137dd8" class="code"><code><span class="token keyword">SELECT</span>  st<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span> <span class="token function">avg</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span>s_score<span class="token punctuation">)</span><span class="token punctuation">,</span> ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token keyword">over</span><span class="token punctuation">(</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token function">avg</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span>s_score<span class="token punctuation">)</span> <span class="token keyword">DESC</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> Score sc 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student st <span class="token keyword">on</span> st<span class="token punctuation">.</span>s_id <span class="token operator">=</span> sc<span class="token punctuation">.</span>s_id  <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> st<span class="token punctuation">.</span>s_id</code></pre><p id="595ce90f-69a2-4bd7-b6b3-9873bfe86ed3" class="">
+</p><p id="00568f80-13c7-44ff-a24f-005578c82e26" class="">
+</p><figure id="3b133099-3c49-4648-8746-0c9374f9f5a8" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2024.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2024.png"/></a></figure><p id="e0d20576-3727-4f14-a040-5c1ea120f346" class="">
+</p><p id="3f95f087-ad44-4821-902b-956096ca7005" class="">
+</p><h3 id="98aae7cd-96ca-4547-9a2f-987553a2fa68" class="">25. 查询各科成绩前三名的记录（不考虑成绩并列情况）</h3><p id="dba36eb4-5ea2-40b8-8022-db685e1f7f95" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="72168ad9-3cf2-4616-9515-bf55bac05f38" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span>
+<span class="token keyword">SELECT</span> st<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span>sc<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span>sc<span class="token punctuation">.</span>s_score<span class="token punctuation">,</span> ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token keyword">over</span><span class="token punctuation">(</span> <span class="token keyword">PARTITION</span> <span class="token keyword">by</span> c_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> s_score <span class="token keyword">DESC</span><span class="token punctuation">)</span> 
+m <span class="token keyword">FROM</span> Score sc <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student st 
+<span class="token keyword">on</span> st<span class="token punctuation">.</span>s_id <span class="token operator">=</span> sc<span class="token punctuation">.</span>s_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> sc<span class="token punctuation">.</span>c_id <span class="token punctuation">)</span> <span class="token keyword">as</span> a <span class="token keyword">WHERE</span> m <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span></code></pre><p id="364cdca5-63e0-46c6-bba8-b0a24abb73f6" class="">
+</p><p id="449061c3-8ea9-4a40-a2b8-916fe06bb0a5" class="">
+</p><figure id="8de89303-f332-4f16-be91-919e1456b5d3" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2025.png"><img style="width:384px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2025.png"/></a></figure><p id="bdf3ed3e-7efa-42d0-ba08-f238aee112e6" class="">
+</p><p id="656ad0e7-4b49-49de-8032-505c61b49655" class="">
+</p><p id="6119b9a4-d379-423f-8711-32171688ea05" class="">
+</p><h3 id="227ea7f7-b6ab-4ff1-a2a6-5dd6446aed96" class="">26. 查询每门课程被选修的学生数</h3><p id="8248b134-477b-4f11-b83b-72ea657427ab" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="2c0063ac-b7e6-4b26-b88e-ded427a1071c" class="code"><code>
+<span class="token keyword">SELECT</span> Score<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span>Course<span class="token punctuation">.</span>c_name<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> s_id<span class="token punctuation">)</span>
+<span class="token keyword">from</span> Score <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course 
+<span class="token keyword">on</span> Score<span class="token punctuation">.</span>c_id <span class="token operator">=</span> Course<span class="token punctuation">.</span>c_id <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> Score<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span> Course<span class="token punctuation">.</span>c_name</code></pre><p id="27a5883c-e450-461a-9a47-4f4c25e85d0f" class="">
+</p><p id="e5807135-0c23-4a52-b882-121c8e2bef9e" class="">
+</p><figure id="079d7674-0b30-43b7-a98c-9221c587767e" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2026.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2026.png"/></a></figure><p id="22e3006a-a520-427e-b087-984eca7d942b" class="">
+</p><p id="1615b02d-63d2-4530-9cb0-4053ae350c0c" class="">
+</p><h3 id="1e054d74-db09-486f-9d55-a6e1e5969d79" class="">27. 查询出只有两门课程的全部学生的学号和姓名</h3><p id="f1101a1f-52fe-41ef-b562-c8b4b14aea6f" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="9c4464e8-4a77-4f2e-9a44-0a7e9773980f" class="code"><code>method: <span class="token number">1</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> Student <span class="token keyword">WHERE</span> s_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+<span class="token keyword">SELECT</span> s_id <span class="token keyword">FROM</span> Score
+<span class="token keyword">group</span> <span class="token keyword">by</span> s_id  <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>Score<span class="token punctuation">.</span>c_id<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token number">2</span> <span class="token punctuation">)</span>
+
+
+method: <span class="token number">2</span>
+<span class="token keyword">SELECT</span> st<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span>s_score<span class="token punctuation">)</span> <span class="token keyword">from</span> Student st 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Score sc <span class="token keyword">on</span> st<span class="token punctuation">.</span>s_id <span class="token operator">=</span> sc<span class="token punctuation">.</span>s_id 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> st<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name  <span class="token keyword">HAVING</span> <span class="token function">count</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span>s_score<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">2</span></code></pre><p id="32631be1-65d5-49dc-bdd0-614b1564ac9c" class="">
+</p><p id="e5f6669b-a862-4cd2-a78e-a524a55f50de" class="">
+</p><figure id="8ee7df3f-c541-423d-a909-7e6a3732700e" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2027.png"><img style="width:336px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2027.png"/></a></figure><p id="21f8e4f6-f68c-473a-9aa6-a9cb07475213" class="">
+</p><p id="d656bd4c-13d3-455b-9d55-981425522896" class="">
+</p><p id="0b9e1686-6bc0-4532-a707-e4dcad03f4f7" class="">
+</p><h3 id="29ea0fb2-3c97-4f0d-9fe5-ba5a2cc88836" class="">28. 查询男生、女生人数</h3><p id="6f1853e8-e353-42bc-912d-3d5c3eacd112" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="321b940a-d31a-40ec-8bcb-3ea9c9e1e421" class="code"><code><span class="token keyword">SELECT</span> s_sex<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span>s_sex<span class="token punctuation">)</span> <span class="token keyword">from</span> Student <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> s_sex</code></pre><p id="0af75f5d-db19-4fa1-ae85-ca9be6b21f98" class="">
+</p><p id="5095dd1e-7016-47ba-878d-c4e54b918d33" class="">
+</p><figure id="e0226c6f-5584-4881-8a7d-f50bf7580e31" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2028.png"><img style="width:288px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2028.png"/></a></figure><p id="d4c7529e-c32c-4f86-b19e-3c1c27274133" class="">
+</p><p id="3917a62f-3805-4b40-b0e7-4a24cc2f4c59" class="">
+</p><p id="3036aa16-e432-47de-a994-2422e2bde5c7" class="">
+</p><h3 id="4302349b-bc9f-46ab-9446-fb04b5d9325e" class="">29. 查询名字中含有&quot;风&quot;字的学生信息</h3><p id="ce939c2a-2d56-4fe5-870f-2daa3e5cc8c5" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="66ed2f38-4d6e-4527-ae73-eb7aa34d6c90" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Student <span class="token keyword">WHERE</span> s_name <span class="token operator">like</span> <span class="token string">'%风%'</span></code></pre><p id="ec2bca66-7ef0-4b65-b1d3-ef173de27290" class="">
+</p><p id="ee7da257-2257-4b7c-939f-6e269678fc9d" class="">
+</p><figure id="028a2195-7905-488b-abb6-1d9e1585316f" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2029.png"><img style="width:480px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2029.png"/></a></figure><p id="cd0fab93-bfbd-4d9d-8f0b-7f3f22082c73" class="">
+</p><p id="18246171-ca53-4a01-a408-96a600a74df7" class="">
+</p><h3 id="a84cb9b9-5048-45de-b4b3-5dc7997b63a4" class="">31. 查询1990年出生的学生名单</h3><p id="c70d4fb8-da7f-49a9-b045-94d208980b28" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="ac1a10d8-54ea-401f-b4ed-176bbd5c82fb" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> Student <span class="token keyword">WHERE</span> <span class="token keyword">YEAR</span><span class="token punctuation">(</span>s_birth<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'1990'</span></code></pre><p id="a63bf2e9-2c67-41ff-b621-ad0f6b0a2cf0" class="">
+</p><p id="f461cf49-1963-47f7-8640-520da62a5765" class="">
+</p><figure id="a977e5af-4e13-415b-a4f3-1971654451f2" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2030.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2030.png"/></a></figure><p id="7b0d5b06-9671-4f69-8ebe-ee3ee2254267" class="">
+</p><p id="a81d8b27-0d75-48f8-8470-d6f54bfaf014" class="">
+</p><p id="37bea517-25f4-417a-b697-c8bbb3f30c84" class="">
+</p><h3 id="34abf883-0d6d-43cd-a65d-b27d790f401d" class="">32. 查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩</h3><p id="d32950ce-22bb-40cf-81ee-bcfba91b4286" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="5e1f2111-2f7d-4d8a-b622-7757e05b3d45" class="code"><code><span class="token keyword">SELECT</span> sc<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span> <span class="token keyword">FROM</span> Score sc <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student st 
+<span class="token keyword">on</span> sc<span class="token punctuation">.</span> s_id <span class="token operator">=</span> st<span class="token punctuation">.</span>s_id   <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> sc<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name <span class="token keyword">HAVING</span> <span class="token function">avg</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">85</span></code></pre><p id="1c10295d-932c-4595-b378-268674a7d038" class="">
+</p><p id="f48afc24-d004-444a-a891-f3fb0eb54e00" class="">
+</p><figure id="06f50bfd-a71c-4bd0-898f-082c0b227395" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2031.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2031.png"/></a></figure><p id="e7188a06-9742-405a-b0df-2733a35b177c" class="">
+</p><p id="d24ec39e-d5d7-4d49-85b8-e1dbd6f7d0e6" class="">
+</p><p id="9e5ef7de-b6b1-414e-9842-336b3f289935" class="">
+</p><h3 id="5f6aeb8a-d0a8-417c-95d5-7e1b19df4461" class="">33. 查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列</h3><p id="2c887b28-faac-4331-9fea-292e84ec76f3" class="">
+</p><p id="1b865615-1baa-4690-b293-c0c3113c3478" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="46f8797a-86ff-4177-8df5-686b0347baf8" class="code"><code><span class="token keyword">SELECT</span> c_id<span class="token punctuation">,</span> <span class="token function">avg</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span> <span class="token keyword">FROM</span> Score <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> c_id 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token function">avg</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span> <span class="token keyword">asc</span><span class="token punctuation">,</span> c_id <span class="token keyword">desc</span></code></pre><p id="5a4194e1-5152-4cb9-ae40-e74624037a92" class="">
+</p><p id="d6ef7ea4-d207-4d1c-9784-3601ba63cefe" class="">
+</p><figure id="119498c3-563f-49fb-a34e-19b4717cec5f" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2032.png"><img style="width:240px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2032.png"/></a></figure><p id="e70f200d-077b-4415-989d-cccf41a59cca" class="">
+</p><p id="8c9f29ef-b62a-4212-80e6-c912582022ec" class="">
+</p><h3 id="bd80d643-35ff-41cd-b494-261c5ea68e26" class="">34.查询课程名称为&quot;数学&quot;，且分数低于60的学生姓名和分数</h3><p id="eb8193af-a964-4b9b-b064-5affac49b4bc" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="66abf044-17e1-4126-9a19-c4fd97398254" class="code"><code><span class="token keyword">SELECT</span> sc<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span>co<span class="token punctuation">.</span>c_name<span class="token punctuation">,</span>s_score <span class="token keyword">from</span> Score sc 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course co <span class="token keyword">on</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> co<span class="token punctuation">.</span>c_id 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student st <span class="token keyword">on</span> sc<span class="token punctuation">.</span>s_id <span class="token operator">=</span> st<span class="token punctuation">.</span>s_id 
+<span class="token keyword">WHERE</span> co<span class="token punctuation">.</span>c_name <span class="token operator">=</span> <span class="token string">"数学"</span> <span class="token operator">and</span> s_score <span class="token operator">&lt;</span> <span class="token number">60</span></code></pre><p id="de4db5f8-e144-4e8f-b9b3-9aae0b9b4b58" class="">
+</p><p id="75f9f894-816c-4d8e-a0aa-a339caf22127" class="">
+</p><figure id="b0baf02a-6b63-4cf4-8465-c960261fdc62" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2033.png"><img style="width:508px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2033.png"/></a></figure><p id="a01d00c1-6886-4055-97f9-1b0e19e0698a" class="">
+</p><h3 id="53b4c06e-c004-4df9-a5fc-006e78c2e4a7" class="">35. 查询所有学生的课程及分数情况</h3><p id="94806fb2-c49e-4b36-b6c0-cca4d8aef9b8" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="7100fa3e-799e-46a8-9e9c-b62be49b1c34" class="code"><code><span class="token keyword">SELECT</span> sc<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span>
+<span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> co<span class="token punctuation">.</span>c_name <span class="token operator">=</span> <span class="token string">"语文"</span> <span class="token keyword">then</span> s_score <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token string">"语文"</span><span class="token punctuation">,</span>
+<span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> co<span class="token punctuation">.</span>c_name <span class="token operator">=</span> <span class="token string">"数学"</span> <span class="token keyword">then</span> s_score <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token string">"数学"</span><span class="token punctuation">,</span>
+<span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> co<span class="token punctuation">.</span>c_name <span class="token operator">=</span> <span class="token string">"英语"</span> <span class="token keyword">then</span> s_score <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token string">"英语"</span><span class="token punctuation">,</span>
+<span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> co<span class="token punctuation">.</span>c_name <span class="token operator">=</span> <span class="token string">"化学"</span> <span class="token keyword">then</span> s_score <span class="token keyword">else</span> <span class="token boolean">null</span> <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token string">"化学"</span>
+<span class="token keyword">from</span> Score sc 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course co <span class="token keyword">on</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> co<span class="token punctuation">.</span>c_id 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student st <span class="token keyword">on</span> sc<span class="token punctuation">.</span>s_id <span class="token operator">=</span> st<span class="token punctuation">.</span>s_id 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> sc<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name</code></pre><p id="02c48f94-9072-43a5-b13f-67878935e1ae" class="">
+</p><p id="398058b5-cc98-4d80-aa66-f21d86970c7d" class="">
+</p><figure id="2fba9016-e55d-474d-914e-b40adfacf6e3" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2034.png"><img style="width:384px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2034.png"/></a></figure><p id="b0f6f4ae-f2be-44de-b652-6da40f82dd67" class="">
+</p><p id="c385adee-e3b7-402b-9831-b9e8f44f7549" class="">
+</p><h3 id="a55aa18e-01d3-49bc-96d5-2caeeecb3361" class="">36. 查询任何一门课程成绩在70分以上的姓名、课程名称和分数</h3><p id="f87db2ea-c17f-42e5-9d11-bf4c9434cc42" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="96b2ea7f-af36-4c17-9a0f-959451ed1a76" class="code"><code><span class="token keyword">SELECT</span> sc<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span>sc<span class="token punctuation">.</span>s_score<span class="token punctuation">,</span>co<span class="token punctuation">.</span>c_name <span class="token keyword">FROM</span> Score sc 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student st <span class="token keyword">on</span> sc<span class="token punctuation">.</span>s_id <span class="token operator">=</span> st<span class="token punctuation">.</span>s_id
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course co <span class="token keyword">on</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> co<span class="token punctuation">.</span>c_id
+<span class="token keyword">WHERE</span> sc<span class="token punctuation">.</span>s_score <span class="token operator">></span> <span class="token number">70</span></code></pre><p id="48b9ccb4-fa9e-4445-a6f3-afbeb5f73d1e" class="">
+</p><p id="f708f0c1-0af7-4453-bd54-9aabd9e5193f" class="">
+</p><figure id="a5b33708-e8cd-4b23-b34c-859b41caa5ab" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2035.png"><img style="width:336px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2035.png"/></a></figure><p id="474ff121-b688-466e-bb73-390cfad1803b" class="">
+</p><p id="39616453-de05-4601-bef9-3217f2cfa86a" class="">
+</p><h3 id="0136bf07-37fc-49f0-acd0-3d540fada1ae" class="">37. 查询不及格的课程并按课程号从大到小排列</h3><p id="4f453a26-2caa-4a18-8943-7d89a49d8925" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="7998c697-f7dd-4333-9db2-a75fcaf49185" class="code"><code><span class="token keyword">SELECT</span> sc<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>co<span class="token punctuation">.</span>c_name<span class="token punctuation">,</span> co<span class="token punctuation">.</span>t_id <span class="token keyword">FROM</span> Score sc <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course co
+<span class="token keyword">on</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> co<span class="token punctuation">.</span>c_id <span class="token keyword">WHERE</span> s_score <span class="token operator">&lt;</span> <span class="token number">60</span> 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> co<span class="token punctuation">.</span>c_id <span class="token keyword">DESC</span></code></pre><p id="275ffc1e-e3fd-4108-b31d-63bb2299913a" class="">
+</p><p id="9688d52d-81a8-46de-b06e-1cb39c9376cd" class="">
+</p><figure id="7016b1f2-f657-4ec2-b4b9-a9fab50c8352" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2036.png"><img style="width:336px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2036.png"/></a></figure><p id="dd35a0c5-d3cd-431d-a7ab-be09e21507fd" class="">
+</p><h3 id="9afb9908-6b82-48d0-9a98-ce7f036ca964" class="">38. 查询课程编号为03且课程成绩在80分以上的学生的学号和姓名</h3><p id="f978ec2c-bd22-4b5f-82bf-778527b1aa27" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="73962c02-4ba7-4d7e-bdc5-5113c5dbd379" class="code"><code><span class="token keyword">SELECT</span> sc<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span>sc<span class="token punctuation">.</span>s_score<span class="token punctuation">,</span> st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span> co<span class="token punctuation">.</span>c_name <span class="token keyword">from</span> Score sc 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student st <span class="token keyword">on</span> sc<span class="token punctuation">.</span>s_id <span class="token operator">=</span> st<span class="token punctuation">.</span>s_id
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course co <span class="token keyword">on</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> co<span class="token punctuation">.</span>c_id
+<span class="token keyword">WHERE</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> <span class="token string">'03'</span> <span class="token operator">and</span> s_score <span class="token operator">></span> <span class="token number">80</span></code></pre><p id="5f7cba3a-f50c-41fe-8f26-bdacd6ed7c28" class="">
+</p><p id="e6188604-0242-40b4-ad1b-7d7689c838a4" class="">
+</p><figure id="4b99004b-055c-417b-8724-c91653fd6c1b" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2037.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2037.png"/></a></figure><p id="21ed98c5-e33d-4f1d-8b71-9cb56351c0da" class="">
+</p><p id="cc926e94-2891-4146-bda8-87c1b7bd54e7" class="">
+</p><h3 id="aed92d7f-3558-47b2-8615-71f1e1af2b00" class="">39. 求每门课程的学生人数</h3><p id="57aa4064-54ed-43b1-9c88-5c4ef2d17dbe" class="">
+</p><p id="cd77a5c7-3a63-41f3-8456-bb3945f74b36" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="fc4cdad8-6735-4192-a98a-5cfd425ebea0" class="code"><code><span class="token keyword">SELECT</span> sc<span class="token punctuation">.</span>c_id<span class="token punctuation">,</span> co<span class="token punctuation">.</span>c_name<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> s_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> Score sc
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course co <span class="token keyword">on</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> co<span class="token punctuation">.</span>c_id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> sc<span class="token punctuation">.</span>c_id</code></pre><p id="557e8021-9dfb-4433-bcce-36fdf10b4094" class="">
+</p><figure id="0aad6d90-b9ab-4b2a-ae9c-088f3af58a8c" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2038.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2038.png"/></a></figure><p id="1406e7fc-9179-4b08-9f7f-65676de47cf0" class="">
+</p><p id="f8bde490-45eb-4482-af55-0985f0b9ef7b" class="">
+</p><h3 id="4a11b9f8-448d-45a5-852e-b39ad831db04" class="">40. 查询选修“张三”老师所授课程的学生中成绩最高的学生姓名及其成绩</h3><p id="4d331dc0-c349-483d-bc20-6686db7227dd" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="e1a29ccc-4c0d-4513-b8e0-30a1e03ead69" class="code"><code><span class="token keyword">SELECT</span> s_id<span class="token punctuation">,</span>t_name<span class="token punctuation">,</span>s_score <span class="token keyword">FROM</span> Score s 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course c <span class="token keyword">on</span> s<span class="token punctuation">.</span>c_id <span class="token operator">=</span> c<span class="token punctuation">.</span>c_id 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Teacher te <span class="token keyword">on</span> c<span class="token punctuation">.</span>t_id <span class="token operator">=</span> te<span class="token punctuation">.</span>t_id
+<span class="token keyword">WHERE</span> te<span class="token punctuation">.</span>t_name <span class="token operator">=</span> <span class="token string">"张三"</span>  <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> s<span class="token punctuation">.</span>s_score <span class="token keyword">DESC</span> <span class="token keyword">LIMIT</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span></code></pre><p id="d4d4e731-c950-45e4-ba38-71fb7ef624e0" class="">
+</p><p id="f56a1000-5a93-4771-bc73-753514b73da7" class="">
+</p><figure id="bdc8447d-091e-4f67-9630-2b5057f68562" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2039.png"><img style="width:288px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2039.png"/></a></figure><p id="92dbc257-028e-46ca-b893-c4ac115c33fd" class="">
+</p><h3 id="e91cbc4d-7a61-4d1e-9c18-158a03c2b2bc" class="">41. 查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩</h3><p id="f186e6a1-e42a-4080-81b3-fef8d50b9531" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="d904ec6c-61a8-4e16-b8ce-5f34de8d55ba" class="code"><code><span class="token keyword">SELECT</span> a<span class="token punctuation">.</span>s_id <span class="token keyword">FROM</span> 
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> s_id <span class="token keyword">FROM</span> Score <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> s_id 
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> c_id<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">as</span> a 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> 
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> s_id<span class="token punctuation">,</span>s_score  <span class="token keyword">FROM</span> Score <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> s_id<span class="token punctuation">,</span>s_score <span class="token punctuation">)</span>  
+<span class="token keyword">as</span> b <span class="token keyword">on</span> a<span class="token punctuation">.</span>s_id <span class="token operator">=</span> b<span class="token punctuation">.</span>s_id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> a<span class="token punctuation">.</span>s_id <span class="token keyword">HAVING</span> <span class="token function">MAX</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">MIN</span><span class="token punctuation">(</span>s_score<span class="token punctuation">)</span></code></pre><p id="0d4447a8-e03e-4c9c-a4c5-f864fa0ada4d" class="">
+</p><p id="6ae22c1c-be08-4fcb-9fc1-48730645d075" class="">
+</p><figure id="9d073cbe-8f2a-412e-bbff-f7da9f388fb7" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2040.png"><img style="width:116px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2040.png"/></a></figure><p id="c84c9d82-7e71-4e80-abba-b55ac27d865b" class="">
+</p><h3 id="1dce3c3c-5802-4d51-baa2-c3aba2b98d01" class="">42. 查询每门功成绩最好的前两名</h3><p id="79cfc215-b892-41b8-bf2b-4e6d85bd7aaa" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="c29328bc-0dc9-4686-99ac-48426851e276" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+<span class="token keyword">select</span> sc<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>co<span class="token punctuation">.</span>c_name<span class="token punctuation">,</span>st<span class="token punctuation">.</span>s_name<span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">by</span> c_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> s_score <span class="token keyword">DESC</span><span class="token punctuation">)</span> m <span class="token keyword">from</span> Score sc 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student st <span class="token keyword">on</span> sc<span class="token punctuation">.</span>s_id <span class="token operator">=</span> st<span class="token punctuation">.</span>s_id
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course co <span class="token keyword">on</span> co<span class="token punctuation">.</span>c_id <span class="token operator">=</span> sc<span class="token punctuation">.</span>c_id 
+<span class="token punctuation">)</span> a 
+<span class="token keyword">WHERE</span> m <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span></code></pre><p id="3aadda8b-c193-48ea-9e42-190ea4ab8492" class="">
+</p><p id="99c022cb-7521-4b74-9633-a15a52d48ae7" class="">
+</p><figure id="bc3832c5-4d9b-42e4-9ba9-9f05f1f5c823" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2041.png"><img style="width:384px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2041.png"/></a></figure><p id="60825b2f-58db-4340-bf3e-2df7c01ec98a" class="">
+</p><p id="05d25819-b7ad-4aae-b9eb-245dd389d01e" class="">
+</p><h3 id="3fe72ee9-6fd9-478f-942d-d3152f3b3afc" class="">43. 统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列</h3><p id="c0ed15bd-68f4-4427-91cf-ce588fa94e1f" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="ea69de67-0117-4c0a-9bb6-ab1f97984318" class="code"><code><span class="token keyword">SELECT</span> c_id<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> s_id<span class="token punctuation">)</span> alias <span class="token keyword">FROM</span> Score <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> c_id 
+<span class="token keyword">HAVING</span> alias <span class="token operator">></span> <span class="token number">5</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> alias <span class="token keyword">DESC</span><span class="token punctuation">,</span>c_id <span class="token keyword">ASC</span></code></pre><p id="740c820a-4904-44de-ae80-bfef494b7792" class="">
+</p><p id="01062e4f-733a-4928-a528-da52239b2e86" class="">
+</p><figure id="791feec9-354f-4049-9a82-8be8e0d5f1c3" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2042.png"><img style="width:250px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2042.png"/></a></figure><p id="e4268a2b-07f0-4523-a41c-c33d8e0fdcc9" class="">
+</p><p id="8ccdc0a1-3338-4a57-806c-1b7d92241ef2" class="">
+</p><h3 id="3e594753-5e91-48be-98f0-0beb0b174a0c" class="">44. 检索至少选修两门课程的学生学号</h3><p id="f771b9e3-4553-42b0-9d98-bad7ae668550" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="daca8b60-0a62-472f-9109-8677c721cbd0" class="code"><code><span class="token keyword">SELECT</span> s_id<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span>c_id<span class="token punctuation">)</span> coursenum <span class="token keyword">from</span> Score
+ <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> s_id <span class="token keyword">HAVING</span> coursenum <span class="token operator">>=</span> <span class="token number">2</span></code></pre><p id="263f29a1-d1ed-4349-83dd-75451f9d65c0" class="">
+</p><p id="92f0e9a4-cfa6-4986-8270-e863e9c1a442" class="">
+</p><figure id="2f2e3d74-2d59-4253-b30c-4d594a150e8e" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2043.png"><img style="width:192px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2043.png"/></a></figure><p id="86eb17ee-6e09-49eb-b036-dc6b47e58704" class="">
+</p><h3 id="7bcc10c0-c162-4da7-b7c4-8289cc6e107a" class="">45. 查询选修了全部课程的学生信息</h3><p id="4469c616-5b2a-4c16-8473-858e046c9e68" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="d9e5c92f-a254-48c0-9083-70fcff3fea3e" class="code"><code><span class="token keyword">SELECT</span> sc<span class="token punctuation">.</span>s_id<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> c_id<span class="token punctuation">)</span> coursenum <span class="token keyword">from</span> Score sc 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Student st <span class="token keyword">on</span> sc<span class="token punctuation">.</span>s_id <span class="token operator">=</span> st<span class="token punctuation">.</span>s_id 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> sc<span class="token punctuation">.</span>s_id <span class="token keyword">HAVING</span>  coursenum  <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> Course<span class="token punctuation">)</span></code></pre><p id="3af61182-7f85-444a-adac-82126393f50b" class="">
+</p><p id="f214ea87-a043-4ce2-825d-4bdb6d519b60" class="">
+</p><p id="6bc6e3f7-f550-4073-9821-5d5ae87d607d" class="">
+</p><figure id="fb0e6a67-ac79-47e4-b8c6-f915d5688595" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2044.png"><img style="width:192px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2044.png"/></a></figure><p id="e7fe38a4-73dc-4993-b99c-90b77b6fe619" class="">
+</p><h3 id="980f7e87-381d-4f58-bd44-f105265d9f13" class="">46. 查询各学生的年龄</h3><p id="a0e96cf1-0904-4a9e-8b89-c8e32d091b42" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="c38fa276-3f18-496c-b497-fa0b813bd336" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>FLOOR<span class="token punctuation">(</span>DATEDIFF<span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>s_birth<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">365</span><span class="token punctuation">)</span> <span class="token keyword">from</span> Student</code></pre><p id="9fe92101-ac84-4004-a309-a1297d370591" class="">
+</p><p id="69944f30-1a69-4e26-bd17-572a2652f69f" class="">
+</p><figure id="eecea607-18ae-439e-9ed2-69916a761769" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2045.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2045.png"/></a></figure><p id="f554df60-e777-4952-b337-9baea9c5d358" class="">
+</p><p id="60c2b9cb-304a-4f10-b6c3-24d7138b6e44" class="">
+</p><h3 id="2dff5671-59d7-4dd1-a8d4-bb88bcce2444" class="">47. 查询没学过“张三”老师讲授的任一门课程的学生姓名</h3><p id="b8903174-72f8-4d2d-8501-0c450530bfd9" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="7c9074b2-9b7f-4f73-a75d-bafa7aa329ec" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> Student <span class="token keyword">WHERE</span> s_id <span class="token operator">not</span> <span class="token operator">in</span><span class="token punctuation">(</span>
+<span class="token keyword">SELECT</span> s_id <span class="token keyword">FROM</span> Score sc 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Course co <span class="token keyword">on</span> sc<span class="token punctuation">.</span>c_id <span class="token operator">=</span> co<span class="token punctuation">.</span>c_id 
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Teacher te <span class="token keyword">on</span> te<span class="token punctuation">.</span>t_id <span class="token operator">=</span> co<span class="token punctuation">.</span>t_id
+<span class="token keyword">WHERE</span> t_name <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">)</span></code></pre><p id="dfb97925-1c40-4451-84dd-e93062dd4fff" class="">
+</p><p id="1d3c19d5-e0cf-408c-9848-34fd26ed569e" class="">
+</p><figure id="3ebcdf7a-3a62-4304-b352-72ede20d9997" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2046.png"><img style="width:336px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2046.png"/></a></figure><p id="23546f86-c89a-477a-a5e2-ea55bd7a7493" class="">
+</p><p id="f025faef-af98-4586-bd95-e0aca7e8fb81" class="">
+</p><p id="3dba1687-51b0-47c7-b032-fff134e25896" class="">
+</p><h3 id="c9e90aec-65e5-4a09-b5da-8d212301c945" class="">48. 查询下周过生日的学生</h3><p id="1bd60773-1f94-4104-87ee-e8e5e3a5bff7" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="1bd21d8a-360f-47f2-bda8-87d555c980be" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Student <span class="token keyword">WHERE</span> 
+WEEK<span class="token punctuation">(</span>CONCAT<span class="token punctuation">(</span><span class="token string">'2020-'</span><span class="token punctuation">,</span>SUBSTRING<span class="token punctuation">(</span>s_birth<span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token operator">=</span> WEEK<span class="token punctuation">(</span><span class="token string">'2021-02-11'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span></code></pre><p id="c16983fd-27cd-4c49-be73-46696c7b52ce" class="">
+</p><p id="d59dfea0-f299-4b40-8d3d-bb79e2a609ef" class="">
+</p><figure id="2ec0fc42-4e70-47db-84f5-e59ecfac10ab" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2047.png"><img style="width:336px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2047.png"/></a></figure><p id="95dd1f4c-6785-4acc-bbae-139f5107ac51" class="">
+</p><p id="bbc83e9c-fd1f-41be-a6ac-578e4a52b030" class="">
+</p><p id="96891682-b71f-40f0-bbf3-aa443ff69ba7" class="">
+</p><h3 id="f9eb0b15-d732-46d1-bdff-9f2cf9a7f5bc" class="">49. 查询本月过生日的人</h3><p id="b794a369-2851-4f5d-823a-d73b57b2df45" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="651017a7-37a3-4efa-834d-f8e91380d257" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> Student <span class="token keyword">WHERE</span> <span class="token keyword">MONTH</span><span class="token punctuation">(</span>s_birth<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token keyword">MONTH</span><span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre><p id="ba8fbe0d-c2e0-451a-b67c-3aad793d25a6" class="">
+</p><figure id="d5e1e2be-51a0-43a9-8ac9-0375cdf1dec6" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2048.png"><img style="width:432px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2048.png"/></a></figure><p id="18d14a56-6cb0-49b7-8e5f-4e7e2531aa66" class="">
+</p><p id="17d75c24-cb9d-41b4-9811-87eb4bd4648d" class="">
+</p><h3 id="f016cdeb-32a0-48dd-ba8f-a4fe2bcd66c2" class="">50. 查询下月过生日的人</h3><p id="f4281164-c4e1-48a9-8839-be61971089ce" class="">
+</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="98033119-7c28-497a-a083-9c9a81a7e34a" class="code"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Student <span class="token keyword">WHERE</span> <span class="token function">MOD</span><span class="token punctuation">(</span><span class="token keyword">MONTH</span><span class="token punctuation">(</span><span class="token function">NOW</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span> <span class="token operator">=</span>
+ <span class="token keyword">MONTH</span><span class="token punctuation">(</span>s_birth<span class="token punctuation">)</span></code></pre><p id="340fb60d-9ab5-457d-95fe-1eb095f06b43" class="">
+</p><p id="b4babdb1-c17c-4c2b-9dd9-3dcfc33bb8bb" class="">
+</p><figure id="0159e006-85f1-4be9-a9a6-a07b82bf9e73" class="image"><a href="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2049.png"><img style="width:480px" src="SQL%E9%9D%A2%E8%AF%9550%E9%A2%98%200dbdb088ae97482d8531f38da98bd269/Untitled%2049.png"/></a></figure></div></article></body></html>
