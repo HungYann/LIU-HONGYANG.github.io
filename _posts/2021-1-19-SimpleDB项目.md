@@ -114,6 +114,10 @@ ppt: https://sites.google.com/site/cs186spring2015/home/schedule-and-notes
 
 
 
+5. CS186 Berkeley Introduction to Database Systems 2018 伯克利 数据库系统
+
+https://www.bilibili.com/video/BV1B7411U7dZ?from=search&seid=11529023848021937065
+
 
 
 另外感谢icegene博主提供的资料[博客](https://iamxpy.github.io/2017/10/05/%E4%BC%AF%E5%85%8B%E5%88%A9%E5%A4%A7%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%9C%E4%B8%9A%E5%AE%9E%E7%8E%B0SimpleDB/)
