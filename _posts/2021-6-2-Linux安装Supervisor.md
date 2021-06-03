@@ -386,6 +386,15 @@ sudo service supervisor restart
 /usr/bin/supervisord -c /etc/supervisord.conf
 ```
 
+使用绝对路径：
+
+```
+[root@s2-vm-02-39 lina_work]# supervisorctl -c /etc/supervisord.conf
+unix:///var/run/supervisor.sock no such file
+supervisor>
+[root@s2-vm-02-39 lina_work]# /usr/bin/supervisord -c /etc/supervisord.conf
+```
+
 
 
 
@@ -404,7 +413,11 @@ stdout_logfile = /var/log/lina/lina_test.log
 
 
 
-最终问题：
+
+
+4.
+
+问题：
 
 ```
 21-06-02 07:27:16 INFO  c.b.l.l.Lina$:31 - parsing config application_test.conf...
@@ -433,6 +446,43 @@ java.nio.file.NoSuchFileException: /tmp/lina_work
 	at sun.nio.fs.LinuxWatchService$Poller.run(LinuxWatchService.java:364)
 	at java.lang.Thread.run(Thread.java:748)
 ```
+
+
+
+解决方案，
+
+创建两个文件夹**/tmp/lina_work**
+
+
+
+5.最终问题
+
+```
+2021-06-03 06:47:55 INFO  c.b.l.l.Lina$:31 - parsing config application_test.conf...
+2021-06-03 06:47:55 INFO  c.b.l.l.Lina$:42 - parse config OK: pos /opt/lina/position.test.save, dir /tmp/lina_work remote addresses a1: 172.18.2.53:5002
+2021-06-03 06:47:56 INFO  c.b.l.l.Lina$:49 - blacklist is: SimpleConfigObject({"index":1,"list":["p9-xg.byteimg.com","p9-hs.byteimg.com","v9-dy.ixigua.com","p9-dy.byteimg.com","p9-tt.byteimg.com","p9-dy.bytecdn.cn","v9-dy-y.ixigua.com","v9-dy-z.ixigua.com","v9-dy-x.ixigua.com","v9-hs.ixigua.com","v9-tt.ixigua.com","v9-default.ixigua.com","v9-vvideov.ixigua.com","v9-ollqv.ixigua.com","v9-vllqv.ixigua.com","v9-dy-ipv6.ixigua.com","v9-vvideosv.ixigua.com","v9-ovideov.ixigua.com","v9-dy-a-x.bytecdn.cn","v9-dy-b-x.bytecdn.cn","v9-dy-c-x.bytecdn.cn","v9-dy-b-x.ixigua.com","p9-tt-ipv6.byteimg.com","p9-dy-ipv6.byteimg.com","f.video.weibocdn.com","st.dl.eccdnx.com","st.dl.pinyuncloud.com","v9.tiktokcdn.com","v9.muscdn.com","v9-vcheckout.muscdn.com","v9-in.tiktokcdn.com","lf9-tk-tos.tiktokcdn.com","p9-image-va-diancha-os.jiyunhudong.com","p9-image-sg-diancha-os.jiyunhudong.com","p9-image-diancha-os.jiyunhudong.com","v9-ph.tiktokcdn.com"]}).
+2021-06-03 06:47:56 INFO  c.b.l.l.Lina$:55 - starting metric...
+2021-06-03 06:47:56 INFO  c.b.l.l.Metric:78 - hostname is s2-vm-02-39
+2021-06-03 06:47:56 INFO  c.b.l.l.Lina$:57 - metric started.
+2021-06-03 06:47:56 INFO  c.b.l.l.Lina$:62 - starting file manager
+2021-06-03 06:47:56 INFO  c.b.l.l.FileMan:47 - watching directory /tmp/lina_work.
+2021-06-03 06:47:56 INFO  c.b.l.l.FileMan:54 - watch /tmp/lina_work OK.
+2021-06-03 06:47:56 INFO  c.b.l.l.FileMan:164 - file /tmp/lina_work/test.log not exists.
+2021-06-03 06:47:56 INFO  c.b.l.l.FileMan:146 - Read dir ok, 0 files left in /tmp/lina_work, in process 0 in queue 0 bad 0 to resume Map() registry 0
+2021-06-03 06:47:56 INFO  c.b.l.l.Lina$:64 - file manager started.
+2021-06-03 06:47:56 INFO  c.b.l.l.Lina$:66 - starting flume
+2021-06-03 06:47:56 INFO  c.b.l.l.Lina$:70 - sampler config is: SamplerConf(1,8,Map(hw.a.yximgs.com -> List(3, 5), hw6.a.yximgs.com -> List(3, 5), hw6.a.kwimgs.com -> List(3, 5), hw2.a.kwimgs.com -> List(3, 5)))
+2021-06-03 06:47:56 INFO  c.b.l.l.FlumeSink:80 - properties of a1 {compression-type=deflate, compression-level=6, ssl=false, connect-timeout=60000, hosts.172.18.2.53=172.18.2.53:5002, hosts=172.18.2.53, truststore=/opt/lina/ssl/flumeTruststore.jks, maxIoWorkers=2, truststore-type=JKS, request-timeout=60000, batch-size=50}
+2021-06-03 06:47:56 INFO  c.b.l.l.FlumeSink:94 - connecting flume...
+2021-06-03 06:47:56 INFO  c.b.l.l.FlumeSink:230 - flume a1 connected.
+2021-06-03 06:47:56 INFO  c.b.l.l.Lina$:147 - staring upload stream...
+2021-06-03 06:47:56 INFO  c.b.l.l.Lina$:166 - stream is running
+2021-06-03 06:48:01 ERROR c.b.l.l.Metric:109 - failed to update metric , akka.stream.StreamTcpException: Tcp command [Connect(127.0.0.1:10699,None,List(),Some(10 seconds),true)] failed because of Connection refused [{"metric":"log_lina","endpoint":"s2-vm-02-39","value":0,"tags":"confVer=0.1,sites=a1","fields":"tx_rate=0.000,err_num=0,file_left=0,bytes=0,lines=0,drop=0","timestamp":1622717220,"counterType":"GAUGE","step":60}]
+```
+
+
+
+
 
 
 
