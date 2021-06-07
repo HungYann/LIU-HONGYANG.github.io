@@ -10,7 +10,7 @@ tags: [Linux]
 
 ##### 错误一: 
 
-Mac OS X ssh登陆Linux是终端提示cannot change locale (UTF-8)
+Mac OS X ssh登陆Linux是终端提示`cannot change locale (UTF-8)` 
 
 解决：
 
