@@ -1,0 +1,29 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Linux]
+---
+
+配置ssh密钥，快速登录服务器
+
+第一步，如果未生成本地密钥，可以使用
+
+```
+ssh-keygen
+```
+
+如果已经生成，查看`~/.ssh/`目录下public地址
+
+
+第三步，将keypair复制到server
+
+```
+ssh-copy-id userid@hostname
+```
+
+最后，直接使用ssh登录
+
+```
+ssh userid@hostname
+```
+

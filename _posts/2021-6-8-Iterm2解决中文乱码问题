@@ -1,0 +1,22 @@
+---
+layout: post
+author: LIU,HONGYANG
+tags: [Terminal]
+---
+
+
+本文遇到的问题是iterm2客户端的中文乱码问题，
+为了解决此问题，
+
+[参考文章](https://segmentfault.com/q/1010000002426378)
+
+
+解决方法如下：
+```
+vim ~/.zshrc
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+```
+
+
+
