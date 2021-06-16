@@ -102,7 +102,7 @@ nvim +checkhealth
 
 如果配置不支持Python语言，需要
 
-```
+```shell
 pip install neovim --upgrade
 ```
 
@@ -118,7 +118,7 @@ pip install neovim --upgrade
 
 
 
-``` '':Incd au
+``` shell
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
@@ -127,17 +127,21 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 命令不生效的原因：
 
-未将自己的配置生效i
+未将自己的配置生效
 
-```
- source ~/.zshrcnum
+
+
+```sh
+ source ~/.zshrc
 ```
 
 
 
 自己的init.vim配置文件路径
 
-```
+
+
+```shell
 call plug#begin('/Users/liuhongyang/.config/nvim/plugged')
 Plug 'tpope/vimi-sensible'
 call plug#end()
@@ -153,7 +157,7 @@ call plug#end()
 
 注意，参考此文件时，[vim自动补全插件coc.nvim安装](https://www.jianshu.com/p/55cf1fa7a467)，需要将bash换成zsh
 
-```
+```shell
 # 如果你的默认 shell 是 bash，请将 zsh 换成 bash
 $ curl -L https://iterm2.com/misc/install_shell_integration.sh | zsh
 ```
