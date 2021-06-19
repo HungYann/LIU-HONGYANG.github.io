@@ -1,4 +1,5 @@
 ---
+
 layout: post
 author: LIU,HONGYANG
 tags: [Linux]
@@ -31,8 +32,6 @@ scp root@www.runoob.com:/home/root/others/music /home/space/music/1.mp3
 ```
 scp -r local_folder remote_username@remote_ip:remote_folder
 ```
-
-
 
 
 
@@ -486,6 +485,93 @@ java.nio.file.NoSuchFileException: /tmp/lina_work
 
 
 
+##### 遇见问题：
+
+
+
+**ERROR(no such process)**
+
+第一次解决方案：
+
+```
+[unix_http_server]
+file=/var/run/supervisor.sock   ; the path to the socket file
+```
+
+结果：无果
+
+
+
+
+
+**根本原因**，是自己用错程序，在**ansible**中不应该使用supervisorctl而应该使用supervisord，这样就成功了。
+
+
+
+![image-20210618133905286](https://tva1.sinaimg.cn/large/008i3skNly1grmd5krxp7j30hs0baq8e.jpg)
+
+
+
+
+
+最后成功
+
+
+
+查看superviosr是否在运行方式
+
+```
+ps aux | grep supervisord
+```
+
+或者通过
+
+```
+supervisorctl查看
+```
+
+
+
+解决问题的文档：
+
+https://liyangliang.me/posts/2015/06/using-supervisor/
+
+
+
+```
+[include]
+files = /etc/supervisord.d/conf.d/*.conf /etc/supervisord.d/conf.d/*.ini /etc/supervisord.d/*.ini
+; files = supervisord.d/*.ini
+```
+
+路径：
+
+```
+/etc/supervisord.d/conf.d
+```
+
+
+
+```
+[root@s2-vm-02-39 conf.d]# cat lina_test.conf
+[program:lina_test]
+environment=MALLOC_ARENA_MAX=1
+command = java -Djava.net.preferIPv4Stack=true -Xmx128m -XX:-UseGCOverheadLimit -XX:+UseConcMarkSweepGC -jar /opt/lina/Lina.jar application_test.conf
+directory = /opt/lina/
+stopasgroup = true
+autostart = true
+autorestart = true
+startsecs = 10
+startretries = 3
+user = root
+redirect_stderr=true
+stdout_logfile = /var/log/lina/lina_test.log
+```
+
+
+
+ 
+
 
 
 ### 参考：
@@ -501,3 +587,4 @@ https://github.com/Supervisor/supervisor/issues/480
 
 
 https://cloud.tencent.com/developer/article/1725966
+
