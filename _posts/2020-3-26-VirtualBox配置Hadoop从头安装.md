@@ -229,6 +229,19 @@ readlink -f /usr/bin/java | sed "s:bin/java::"
 
 
 
+(`centos`配置添加补充：)
+
+`vim ~/.bashrc`
+
+```
+export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+
+
+
+
 
 
 注意，到bin即可，配置JAVA_HOME, 不要将其它的也包括进去！
@@ -291,7 +304,7 @@ sudo gedit .bashrc
 ```shell
 export PATH=$PATH:/home/liuhongyang/hadoop/bin
 export PATH=$PATH:/home/liuhongyang/hadoop/sbin
-source .bashrc
+# source .bashrc 不要添加否则会导致循环
 ```
 
 
