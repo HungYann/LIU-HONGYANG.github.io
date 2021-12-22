@@ -1,7 +1,7 @@
 ---
-layout:post
-author:LIU,HONGYANG
-tags:[Hadoop]
+layout: post
+author: LIU,HONGYANG
+tags: [Hadoop]
 ---
 
 
